@@ -1,0 +1,14 @@
+{
+  "name": "tvara-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "The Tvara marketing and legal site. Static, multipage, no runtime dependencies.",
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node build.mjs --check",
+    "serve": "node build.mjs && node --run serve:dist",
+    "serve:dist": "npx --yes serve dist",
+    "deploy": "node build.mjs && npx --yes wrangler@4 pages deploy dist --project-name tvara-site"
+  }
+}

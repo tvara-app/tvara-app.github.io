@@ -1,0 +1,177 @@
+<!--meta title="Features · Tvara" desc="Every feature in Tvara, explained: speed engine, minimap, outline, stars, search, timestamps, Chat Card, resume, backups, Total Recall, Context Bridge, allowance tracking and deletion quarantine."-->
+    <section>
+      <div class="section-head">
+        <span class="eyebrow">Everything it does</span>
+        <h2>Every feature, and the honest limits of each</h2>
+        <p>Nothing here is a roadmap. Where a feature cannot know something — a send time a browser was never told, a chat you have not opened — this page says so, because the extension says so too.</p>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>Speed engine</h3>
+          <p class="why">Off-screen messages are put to sleep so the browser stops paying for what you cannot see. A safety zone of about a screen and a half above and below your viewport stays awake, so scrolling never shows a blank.</p>
+          <p class="why">It is automatic on chats longer than roughly 25 messages, and the popup shows live proof: an honest <strong>1,491 of 1,500</strong> count, per site. Nothing is deleted and nothing leaves your archive.</p>
+        </div>
+        <dl>
+          <div><dt>Where</dt><dd>Every supported platform</dd></div>
+          <div><dt>Plan</dt><dd>Free</dd></div>
+          <div><dt>Off switch</dt><dd>Popup · Speed engine</dd></div>
+          <div><dt>Never</dt><dd>The extension does not scroll your page on its own. Mounting older messages is a separate button you press.</dd></div>
+        </dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>Minimap</h3>
+          <p class="why">A compact navigator on the right edge showing the shape of the whole conversation: your prompts, the answers, code blocks, and the count of sleeping messages. At rest it is a thin rail about as wide as a scrollbar with a bright thumb where you are.</p>
+          <p class="why">Hover any bar for a preview, click to jump — one click lands, hundreds of turns away, even where the site has unloaded the message. Focus it and Home, End, Page Up, Page Down and the arrows all work. The handle collapses it to a corner.</p>
+        </div>
+        <dl>
+          <div><dt>Toolbar</dt><dd>Outline, mount older messages, Markdown and JSON backup, search, Context Bridge, continue in a new chat</dd></div>
+          <div><dt>Plan</dt><dd>Free</dd></div>
+          <div><dt>Off switch</dt><dd>Popup · Minimap</dd></div>
+        </dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>A map that is complete instantly</h3>
+          <p class="why">On ChatGPT the map shows the whole conversation the moment you open it — every message, in order — while the page itself has rendered the last twenty or so. Nothing scrolls.</p>
+          <p class="why">ChatGPT hands over an entire conversation in one request, and every message in it carries the ID the page stamps on each rendered message. Your archived copy answers first, instantly and offline; the live copy corrects it a beat later. Click something the page has not rendered and it opens in a preview you can read now, while the site is asked to load its way back to it.</p>
+        </div>
+        <dl>
+          <div><dt>Where</dt><dd>ChatGPT today. Elsewhere the map builds from what is on the page.</dd></div>
+          <div><dt>Side effect</dt><dd>The chat you are reading gets fully archived for free</dd></div>
+        </dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>Outline and starred messages</h3>
+          <p class="why">A live table of contents built from every prompt you sent plus every heading in the answers. Click an entry to jump — a heading takes you to that heading, not to the top of the answer holding it. Very long chats list the first 400 entries and say so; it never silently truncates.</p>
+          <p class="why">Stars are bookmarks inside a conversation: hover any message, click the star, and it gets a gold edge. They are saved per conversation, survive reloads, and the most recent 60 per conversation sync to your other signed-in browsers while the full set stays on this one.</p>
+        </div>
+        <dl>
+          <div><dt>Open</dt><dd>The list icon on the minimap toolbar</dd></div>
+          <div><dt>Tabs</dt><dd>Outline (everything) and Starred (only yours)</dd></div>
+          <div><dt>Plan</dt><dd>Free</dd></div>
+        </dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>In-chat search</h3>
+          <p class="why">Instant full-text search across the entire conversation <strong>including sleeping messages</strong> — it searches a text cache rather than the rendered page, so the speed engine costs you nothing here.</p>
+          <p class="why">The match counter updates as you type. Enter jumps to the next match, Shift+Enter to the previous, Escape closes. Each jump scrolls to the match and pulses it.</p>
+        </div>
+        <dl>
+          <div><dt>Keys</dt><dd><kbd>⌘⇧F</kbd> / <kbd>Ctrl+Shift+F</kbd></dd></div>
+          <div><dt>Plan</dt><dd>Free</dd></div>
+        </dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>Message timestamps</h3>
+          <p class="why">AI chat sites never show when anything was said. Hover a message and a small time tag appears.</p>
+          <p class="why"><strong>The honesty rule:</strong> on ChatGPT you get the real send time of your whole history, read locally from the app's own state by a read-only script that makes no network request. On other sites browsers simply do not have historical send times, so messages are stamped from when the extension first saw them and labelled <em>first seen · this device</em>. Messages that existed before you installed say <em>time unknown</em>.</p>
+        </div>
+        <dl>
+          <div><dt>Plan</dt><dd>Free</dd></div>
+          <div><dt>Off switch</dt><dd>Popup · Timestamps</dd></div>
+        </dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>Chat Card</h3>
+          <p class="why">Hover a conversation in the site's own sidebar and a small card tells you about it before you open it: how many messages, how many questions you asked, how many you starred, when it was created or first seen, when you last opened it, and whether it is your longest chat on that site.</p>
+          <p class="why"><strong>What it cannot know:</strong> chats you have never opened. The sites do not put other conversations' data in the page and this extension has no server to ask, so an unopened chat says <em>not tracked yet</em> rather than guessing. "Your longest visited chat" means exactly that.</p>
+        </div>
+        <dl>
+          <div><dt>How</dt><dd>Hover. No clicks.</dd></div>
+          <div><dt>Plan</dt><dd>Free</dd></div>
+        </dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>Resume where you left off</h3>
+          <p class="why">The exact message you were reading in each long chat is remembered, anchored to the message itself rather than a pixel position, so it survives reloads and layout changes. Reopen the chat and a chip offers to take you back; scroll away deliberately and it dismisses itself.</p>
+        </div>
+        <dl><div><dt>Plan</dt><dd>Free</dd></div></dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>One-click backup</h3>
+          <p class="why">The loaded conversation as a clean file on your disk. <strong>Markdown</strong> keeps headings, lists, code fences and timestamps and drops straight into Obsidian or Notion. <strong>JSON</strong> is structured — role, text and timestamp per message — for your own scripts.</p>
+          <p class="why">Scheduled encrypted backups are separate: <code>.lctbackup</code> files written to your Downloads folder, sealed with a passphrase you choose and that we cannot recover. The file assumes it will be stolen — a million PBKDF2 rounds wrap a random file key and the body is AES-256-GCM, with both layers authenticating the header, so a downgraded file fails to open rather than opening weaker.</p>
+        </div>
+        <dl>
+          <div><dt>Where</dt><dd>Minimap toolbar, and the Recall page for encrypted archives</dd></div>
+          <div><dt>Plan</dt><dd>Free to export, always. Exporting your own archive never requires a licence.</dd></div>
+        </dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>Total Recall <span class="tag pro">Pro</span></h3>
+          <p class="why">One search box across every archived chat on every platform. Click a result and land in that conversation with the in-chat search already open on your words.</p>
+          <p class="why">The archive builds itself: a check runs roughly every three hours, shortly after the browser starts, and when you open a chat site — at most once every twenty minutes — reading the history endpoints of the accounts you are already signed into and writing only what is missing. Progress is one real percentage across every platform in the pass. Turn the automatic pass off and it only checks when you press <strong>Check for new chats</strong>.</p>
+          <p class="why"><strong>Temporary chats</strong> are off by default, because a temporary chat is you telling that platform not to keep it. Switch it on and they are archived locally too, labelled as temporary, with a badge on the page for as long as one is being archived — never a silent recording. They cannot be reopened on the platform: the original was never saved there.</p>
+        </div>
+        <dl>
+          <div><dt>Keys</dt><dd><kbd>⌘⇧K</kbd> / <kbd>Ctrl+Shift+K</kbd></dd></div>
+          <div><dt>Search runs</dt><dd>On your machine. There is no server to send conversations to.</dd></div>
+        </dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>Context Bridge <span class="tag pro">Pro</span></h3>
+          <p class="why">You worked it out with one model; the next one knows none of it. While composing a prompt on any supported site, press the shortcut: Recall searches your whole cross-platform archive, shows the most relevant passages, you tick the ones you want, and they go into the prompt you are writing.</p>
+          <p class="why">It calls no API of ours, uses no key and runs no model — it feeds context to the model you are already signed into and paying for. A long chat contributes several passages from different points in the thread rather than three views of one paragraph. You always pick before anything is inserted, and if the prompt box cannot be found it copies to your clipboard instead of touching a page it does not understand.</p>
+        </div>
+        <dl>
+          <div><dt>Keys</dt><dd><kbd>⌘⇧U</kbd> / <kbd>Ctrl+Shift+U</kbd></dd></div>
+          <div><dt>Fail-safe</dt><dd>Clipboard, never a surprise insertion</dd></div>
+        </dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>Continue in a new chat <span class="tag pro">Pro</span></h3>
+          <p class="why">When a chat gets long, slow, or hits a limit, one click opens a fresh one with the context already in the prompt box: your original ask, your starred messages, the last few turns. Quoted, never summarised, and nothing is sent for you — you press send.</p>
+        </div>
+        <dl><div><dt>Where</dt><dd>Minimap toolbar</dd></div></dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>Allowance tracking</h3>
+          <p class="why">The apps warn you about your plan limit by cutting you off. Tvara warns at 20% and again at 10%, on whichever model is running down, using the provider's own figure rather than an estimate.</p>
+          <p class="why">It is strictly passive. A page-world reader observes the rate-limit information the sites' responses already carry; requests are never altered, blocked, delayed or replayed. It reads rate-limit headers, and opens a response body only when the URL's own path says the response is about limits — never chat traffic, never a stream. A provider that publishes nothing gets <em>not reported</em>, never a guess.</p>
+        </div>
+        <dl>
+          <div><dt>Off switch</dt><dd>Popup · Allowance tracking. With it off, the hooks disable themselves.</dd></div>
+          <div><dt>Kept</dt><dd>A redacted diagnostic sample in which every string over 40 characters is replaced by its length</dd></div>
+        </dl>
+      </div>
+
+      <div class="feature-row">
+        <div>
+          <h3>Deletion quarantine</h3>
+          <p class="why">Deleted there is not deleted here. A once-daily full listing is what notices a chat has gone from the provider, and the extension refuses to act on an implausible one — a signed-out session can never present your whole archive for deletion. You are told, and you decide what to keep.</p>
+        </div>
+        <dl><div><dt>Where</dt><dd>Popup alert, and the deletions panel on the Recall page</dd></div></dl>
+      </div>
+    </section>
+
+    <section>
+      <div class="callout">
+        <h2>Nothing above phones home</h2>
+        <p>No chat text, no titles, no prompts and no exports are ever sent to us or to anyone else. The extension ships as unminified, unobfuscated JavaScript and the licence issuer's source is in the repository, so every sentence on this page is a statement about code you can read.</p>
+        <div class="cta-row"><a class="btn btn-primary" href="/privacy">The privacy policy, in full</a></div>
+      </div>
+    </section>

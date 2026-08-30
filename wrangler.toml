@@ -1,0 +1,13 @@
+# The site is static, so it ships as a Worker with an assets binding and no
+# script of its own. Pages was the obvious home for it, but this account's
+# /pages/projects endpoint answers 8000000 to every create, and Workers static
+# assets is Cloudflare's own recommendation for new projects anyway.
+name = "tvara-site"
+compatibility_date = "2026-08-30"
+
+[assets]
+directory = "dist"
+# /features serves features.html, and a bad path gets the home page rather than
+# a Cloudflare error page wearing someone else's branding.
+html_handling = "auto-trailing-slash"
+not_found_handling = "single-page-application"
