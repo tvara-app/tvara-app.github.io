@@ -1,0 +1,51 @@
+<h1>How to judge a browser extension for AI chats</h1>
+
+<p>Search for one and you will find dozens. They all promise roughly the same things. Here is what actually separates them, in the order that matters.</p>
+
+<h2>1 · What it asks to read</h2>
+
+<p>Open the permissions before you install. A tool that works on chat sites should name chat sites. If it requests access to every site you visit, ask why — there is sometimes a real reason, and the absence of one is informative.</p>
+
+<p>Also worth noticing: <code>tabs</code>, <code>history</code>, <code>cookies</code> and <code>webRequest</code> are each a large expansion of reach and each is rarely needed by a tool that only works inside a conversation.</p>
+
+<h2>2 · Whether your conversations leave your machine</h2>
+
+<p>This is the single biggest fork. Some tools archive your chats to their own servers — often as the headline feature, since it enables sync and web access. That can be a reasonable trade. It also means a second company holds everything you have ever asked an assistant, with its own breach surface and its own future change of ownership.</p>
+
+<p>A local-only tool cannot offer cross-device sync of your archive. If a product offers both, ask where the copy lives.</p>
+
+<h2>3 · What happens when a site redesigns</h2>
+
+<p>Chat platforms change their markup constantly, and every one of these tools depends on it. The failure mode matters more than the failure:</p>
+
+<ul>
+<li><strong>Acceptable:</strong> a feature quietly does nothing until an update lands.</li>
+<li><strong>Not acceptable:</strong> the host page breaks, messages render wrong, or the tool reports success while archiving nothing.</li>
+</ul>
+
+<p>The last one is the real risk, because you find out months later when you need something and it is not there.</p>
+
+<h2>4 · Whether it tells the truth when it does not know</h2>
+
+<p>Any tool that counts messages or reports usage limits is inferring things from a page that was not built to be read that way. The honest ones mark an approximate count as approximate and say "not reported" where a platform publishes nothing. The dishonest ones show a confident number, and a confident wrong number is worse than a blank.</p>
+
+<h2>5 · The business model</h2>
+
+<p>Free with no visible funding is not free. The common models are a subscription, a one-time purchase, or your data. Only one of those is invisible until it is not, so it is worth establishing which you are in.</p>
+
+<h2>6 · Whether it deletes anything</h2>
+
+<p>Several performance tools speed up long chats by removing older messages from the page permanently. It works, and if you then scroll up, the conversation is shorter than it was. Check whether "speed" means "renders less" or "keeps less".</p>
+
+<h2>How Tvara answers each</h2>
+
+<ul>
+<li><strong>Permissions:</strong> six named chat platforms and its own post-purchase page. No <code>tabs</code>, <code>history</code>, <code>cookies</code>, <code>bookmarks</code> or <code>webRequest</code>.</li>
+<li><strong>Where the data lives:</strong> your machine only. No server receives chat text, and there is none that could.</li>
+<li><strong>When a site redesigns:</strong> unknown markup means the feature does nothing. Never a broken host page.</li>
+<li><strong>Honesty:</strong> counts it cannot vouch for are marked approximate; unpublished allowances read "not reported", never an estimate.</li>
+<li><strong>Model:</strong> free core, $1 once for Pro, no subscription.</li>
+<li><strong>Deletion:</strong> nothing is removed. Off-screen messages stop costing what on-screen ones do; the conversation stays whole.</li>
+</ul>
+
+<p><a href="/features">Every feature and where it stops</a> · <a href="/privacy">The privacy policy</a></p>

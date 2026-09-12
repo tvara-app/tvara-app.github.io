@@ -1,0 +1,37 @@
+<h1>Is your AI chat history private?</h1>
+
+<p>You have typed things into an assistant you would not put in an email. It is worth knowing, specifically, where that text is and who can reach it.</p>
+
+<h2>Where your conversations actually live</h2>
+
+<p>On the provider's servers, tied to your account, for as long as their retention policy says — which is typically "until you delete it", with a grace period after deletion during which it still exists in backups.</p>
+
+<p>That is the baseline for every major assistant. The differences are in what happens next.</p>
+
+<h2>The four questions worth asking</h2>
+
+<p><strong>Is it used for training?</strong> Consumer tiers often default to yes with an opt-out in settings; business and enterprise tiers usually default to no. The setting is rarely in an obvious place and it is worth checking rather than assuming.</p>
+
+<p><strong>Who at the company can read it?</strong> Every major provider reserves the right of human review for abuse, safety and quality. This is normal and necessary, and it also means "nobody reads it" is not accurate for any of them.</p>
+
+<p><strong>What happens on deletion?</strong> Gone from your interface immediately; gone from their systems within a window, commonly around thirty days. Not instant, and not recoverable by you in the meantime. <a href="/answers/recover-deleted-ai-chat">More on deletion</a>.</p>
+
+<p><strong>What does a browser extension add to this?</strong> An extension with access to a chat site can read everything on the page. That is not a hypothetical — it is what "read your data on this site" means in the permission dialog, and it is the price of any tool that works there.</p>
+
+<h2>Judging an extension honestly</h2>
+
+<p>The question is not whether it can read your chats — anything useful can. The question is what it does with them. Three things you can check without taking anyone's word:</p>
+
+<ul>
+<li><strong>Which hosts it asks for.</strong> A tool for chat sites should list chat sites. <code>&lt;all_urls&gt;</code> on a tool that claims to work on six named platforms is a mismatch worth asking about.</li>
+<li><strong>Whether it has a server.</strong> If there is an account, a sync feature or a cloud archive, your conversations are on a second company's infrastructure as well as the provider's. That may be a fine trade — but it is a trade, and it should be stated.</li>
+<li><strong>What the privacy policy names specifically.</strong> Vague is a choice. A policy that names the exact endpoints it calls is making a checkable claim; one that says "we take privacy seriously" is not.</li>
+</ul>
+
+<h2>Where Tvara stands</h2>
+
+<p>Tvara's archive is stored in your browser's own storage on your machine. No chat text, title, prompt or URL is uploaded by any code path — there is no server that could receive one.</p>
+
+<p>The only outbound connections are to the AI platforms themselves, to copy your history in, and to a licence issuer that receives a licence key hash, a device hash and an identity token when you start a trial or buy. It never sees a word of a conversation.</p>
+
+<p>The host permissions are the six named chat platforms and nothing else. You can read <a href="/privacy">the full privacy policy</a>, which names the endpoints rather than describing them.</p>

@@ -1,0 +1,53 @@
+<h1>How to continue a long conversation in a new chat</h1>
+
+<p>Every long chat eventually reaches the point where starting fresh is the right call — the page is slow, the model has drifted, or the window is full. The problem is everything you lose in the move.</p>
+
+<h2>What actually needs to carry over</h2>
+
+<p>Most people paste far too much and it works badly. A new chat does not need the transcript. It needs four things:</p>
+
+<ul>
+<li><strong>The goal.</strong> One or two sentences on what you are trying to produce.</li>
+<li><strong>The decisions.</strong> What was settled and will not be relitigated — the stack, the format, the constraints, the things ruled out and why.</li>
+<li><strong>The current state.</strong> The latest version of whatever you are iterating on. Not every draft, just the live one.</li>
+<li><strong>What is next.</strong> The specific question you were about to ask.</li>
+</ul>
+
+<p>Notice what is missing: the reasoning that got you there. You already paid for that. The conclusions are what has value in the new chat.</p>
+
+<h2>A handover that works</h2>
+
+<pre><code>Continuing earlier work.
+
+GOAL: &lt;one sentence&gt;
+
+DECIDED (do not revisit):
+- &lt;decision&gt; — because &lt;one clause&gt;
+- &lt;decision&gt; — because &lt;one clause&gt;
+
+RULED OUT: &lt;thing&gt;, because &lt;one clause&gt;
+
+CURRENT STATE:
+&lt;the live artefact&gt;
+
+NEXT: &lt;the specific question&gt;</code></pre>
+
+<p>The "because" clauses matter more than they look. Without them the model treats a decision as a preference and negotiates with it; with them it treats it as a constraint.</p>
+
+<h2>Getting the summary without writing it yourself</h2>
+
+<p>Before you leave the old chat, ask it to do the work:</p>
+
+<blockquote><p>Summarise this conversation as a handover for a fresh session. List only the goal, the decisions we settled and why, anything we ruled out, and the current state of the work. No narrative, no recap of how we got here.</p></blockquote>
+
+<p>That prompt is doing something specific: forbidding narrative. Left to itself a model will produce a story of the conversation, which is the least useful thing to paste into the next one.</p>
+
+<h2>When not to start over</h2>
+
+<p>If the problem is only that the page is slow, a new chat is an expensive fix for a rendering problem. The conversation is fine; the document is heavy. Reloading the tab, or anything that stops off-screen messages costing what on-screen ones do, keeps the context you would otherwise be rebuilding by hand. <a href="/answers/why-long-ai-chats-get-slow">More on that</a>.</p>
+
+<h2>How Tvara does the handover</h2>
+
+<p>Context Bridge pulls a specific past answer out of your local archive and into the prompt you are typing — the actual text, not your recollection of it. You pick what carries over instead of pasting a transcript and hoping.</p>
+
+<p>It is part of Pro, along with archive search. <a href="/pricing">$1 once, five devices, no subscription</a>.</p>

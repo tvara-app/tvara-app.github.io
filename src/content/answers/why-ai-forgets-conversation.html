@@ -1,0 +1,36 @@
+<h1>Why the AI forgets what you told it earlier</h1>
+
+<p>You explained the constraints forty messages ago. The model has just broken every one of them. It is not being careless — it very likely cannot see that message any more.</p>
+
+<h2>The context window</h2>
+
+<p>A language model has no memory between messages. Every time you press send, the entire conversation is packaged up and handed to it again from scratch. What it "knows" is only what fits in that package.</p>
+
+<p>That package has a hard size limit — the context window, measured in tokens, roughly three-quarters of a word each. When a conversation outgrows it, something has to be dropped, and what gets dropped is usually the oldest material: the part where you set the rules.</p>
+
+<p>This is why the failure has such a distinctive shape. The model is sharp about the last few exchanges and confidently wrong about the thing you established at the start.</p>
+
+<h2>Why a bigger window does not fix it</h2>
+
+<p>Windows have grown enormously and the problem persists, for two reasons.</p>
+
+<p><strong>Attention is not uniform.</strong> Models reliably use the beginning and the end of their context better than the middle. Bury a constraint halfway through a very long conversation and it is technically present but practically ignored — worse in some ways than being dropped, because you cannot tell by looking.</p>
+
+<p><strong>Summarisation is lossy.</strong> Several products compress older turns rather than dropping them. That keeps the gist and loses exactly what you care about: the specific number, the exact phrasing, the thing you said not to do.</p>
+
+<h2>What to do about it</h2>
+
+<ol>
+<li><strong>Restate constraints in the message where they matter.</strong> Not as a reminder at the top of a new section — in the actual request. "Using the schema we agreed, which is X" beats "remember the schema".</li>
+<li><strong>Keep one canonical message.</strong> Maintain a single message holding the current state of the decisions and re-paste it when you feel drift starting. Cheaper than re-deriving.</li>
+<li><strong>Start a new chat deliberately, with a handover.</strong> Not the panicked restart that loses everything — a considered one where you carry the conclusions across. <a href="/answers/continue-conversation-in-new-chat">How to do that properly</a>.</li>
+<li><strong>Watch for the tell.</strong> When answers start contradicting something settled early, that is the window, not the model having a bad day. Act on it rather than re-explaining three times.</li>
+</ol>
+
+<h2>Where a local archive helps</h2>
+
+<p>The practical problem is not that the model forgets — it is that <em>you</em> cannot quickly find what you told it. The constraint is somewhere in four hundred messages and the page has unloaded most of them.</p>
+
+<p>Tvara keeps a searchable copy of the conversation on your machine, so the message where you set the rule is one search away, and Context Bridge pulls it straight into the prompt you are writing rather than making you scroll and copy.</p>
+
+<p>Next: <a href="/answers/continue-conversation-in-new-chat">continuing in a new chat without losing the thread</a>.</p>
