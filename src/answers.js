@@ -15,6 +15,12 @@ import tidy from "./content/answers/organize-ai-conversations.html?raw";
 import priv from "./content/answers/is-ai-chat-history-private.html?raw";
 import pick from "./content/answers/choosing-an-ai-chat-extension.html?raw";
 import read from "./content/answers/read-long-ai-answers.html?raw";
+import crash from "./content/answers/ai-chat-freezes-browser.html?raw";
+import howmany from "./content/answers/how-many-messages-in-one-chat.html?raw";
+import notes from "./content/answers/save-notes-from-ai-chats.html?raw";
+import backup from "./content/answers/automatic-backup-ai-chats.html?raw";
+import multi from "./content/answers/using-multiple-ai-assistants.html?raw";
+import stuck from "./content/answers/ai-chat-wont-load.html?raw";
 
 export const ANSWERS = [
   {
@@ -88,6 +94,42 @@ export const ANSWERS = [
     crumb: "Read a long answer",
     title: "How to read a long AI answer without scrolling forever · Tvara",
     desc: "A chat answer has no headings, no contents and a scrollbar measuring the wrong thing. Five techniques that work now, and the navigation gap underneath them.",
+  },
+  {
+    slug: "answers/ai-chat-freezes-browser", html: crash, updated: "2026-09-12",
+    crumb: "When the tab freezes",
+    title: "Why an AI chat freezes or crashes your browser tab · Tvara",
+    desc: "A long conversation full of code and images can exhaust a tab's memory budget. What pushes it over, how to get out of it without losing unsent text, and how to stop it recurring.",
+  },
+  {
+    slug: "answers/how-many-messages-in-one-chat", html: howmany, updated: "2026-09-12",
+    crumb: "How long can a chat be?",
+    title: "How many messages can one AI conversation hold? · Tvara",
+    desc: "Two different limits get confused constantly: what the model can still see, and what the browser tab can still render. Why there is no fixed number, and which one you hit first.",
+  },
+  {
+    slug: "answers/save-notes-from-ai-chats", html: notes, updated: "2026-09-12",
+    crumb: "Keep the good parts",
+    title: "How to keep the good parts of your AI conversations · Tvara",
+    desc: "Four approaches in increasing order of effort, and the silent ways copy-paste loses maths, code language, diagrams and images out of a chat answer.",
+  },
+  {
+    slug: "answers/automatic-backup-ai-chats", html: backup, updated: "2026-09-12",
+    crumb: "Automatic backups",
+    title: "How to back up your AI conversations automatically · Tvara",
+    desc: "Account exports are manual snapshots, not a backup strategy. What an automatic backup has to get right — unattended, encrypted, restorable — and how to roll your own if you prefer.",
+  },
+  {
+    slug: "answers/using-multiple-ai-assistants", html: multi, updated: "2026-09-12",
+    crumb: "Using two or three",
+    title: "Using two or three AI assistants without losing the thread · Tvara",
+    desc: "Context does not travel, history fragments and allowances are separate and invisible. Four habits that help, what never works, and why it is really a search problem.",
+  },
+  {
+    slug: "answers/ai-chat-wont-load", html: stuck, updated: "2026-09-12",
+    crumb: "When a chat will not load",
+    title: "When an AI conversation will not load · Tvara",
+    desc: "Three questions that separate almost every cause — a new chat, a private window, another device — then the five common culprits and what to do if it is genuinely gone.",
   },
 ];
 

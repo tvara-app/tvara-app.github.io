@@ -1,0 +1,35 @@
+<h1>How to back up your AI conversations automatically</h1>
+
+<p>A manual backup is a backup you will make twice and then forget. If your chat history matters, the only version that works is the one that happens without you.</p>
+
+<h2>What the platforms give you</h2>
+
+<p>Every major assistant offers an account data export, and none of them offer a scheduled one. You request it, wait, and download a link before it expires. That is a manual process with extra steps, and it is a snapshot — valid for the moment it was produced.</p>
+
+<p>It is worth doing once as a baseline. It is not a backup strategy.</p>
+
+<h2>What an automatic backup has to get right</h2>
+
+<ul>
+<li><strong>It has to run without being asked.</strong> Anything requiring a decision will not happen during the months when nothing goes wrong.</li>
+<li><strong>It has to be encrypted.</strong> A complete archive of everything you have ever asked an assistant is among the most sensitive files you own. A plaintext copy in Downloads is worse than no copy in some threat models.</li>
+<li><strong>It has to be restorable.</strong> An export you can read is not the same as a backup that comes back whole. Test the restore, not just the export.</li>
+<li><strong>It must not grow without bound.</strong> A daily full dump of a growing archive fills a disk quietly.</li>
+</ul>
+
+<h2>Rolling your own</h2>
+
+<p>If you want to do this yourself: request a platform export on a calendar reminder, encrypt the file, and store it somewhere that is not the machine that made it. That is genuinely sufficient. It is also five manual steps per platform per month, which is why almost nobody sustains it.</p>
+
+<h2>How Tvara does it</h2>
+
+<p>Tvara already keeps a local archive as you use the sites, so a backup is a file it writes rather than a request it makes. The backup is encrypted with a password only you hold, written to your Downloads folder, and restoring it after a reinstall merges rather than overwrites.</p>
+
+<p>Two properties worth stating plainly, because they are the ones that matter when something has gone wrong:</p>
+
+<ul>
+<li><strong>A shrinking write never replaces a fuller record.</strong> A partial sync cannot quietly truncate your archive.</li>
+<li><strong>A provider deleting a chat does not delete your copy.</strong> You are asked what to do, and a deletion you confirm is reversible for a while afterwards.</li>
+</ul>
+
+<p>Encrypted backup and restore are Pro; plain exports are free. <a href="/pricing">Pricing</a> · <a href="/answers/export-ai-chat-history">Exports explained</a></p>

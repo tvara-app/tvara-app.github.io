@@ -1,0 +1,32 @@
+<h1>Why an AI chat freezes or crashes your browser tab</h1>
+
+<p>The tab stops responding. The fan spins up. Sometimes Chrome offers to kill the page entirely. This is not the assistant failing — it is the tab running out of room.</p>
+
+<h2>What "out of memory" actually means here</h2>
+
+<p>A browser tab has a memory budget. Every message in a conversation consumes some of it: the text, the layout data, the syntax-highlighted code, the rendered images, the undo state of the input box. A very long conversation with a lot of code can reach hundreds of megabytes on its own.</p>
+
+<p>When the tab approaches its ceiling the browser starts working much harder to find room, which is what you feel as the freeze. Cross it and the process is killed — the "Aw, snap" page.</p>
+
+<h2>The three things that push it over</h2>
+
+<ul>
+<li><strong>Length plus code.</strong> A hundred short messages is fine. Forty messages containing large files is not. Syntax highlighting creates a separate element per token, so one pasted file can cost more than fifty ordinary messages.</li>
+<li><strong>Images in the conversation.</strong> Generated and uploaded images stay decoded in memory while they are near the viewport.</li>
+<li><strong>Everything else you have open.</strong> The budget is shared across the browser. A chat that behaves alone will crash when it is competing with forty tabs and a video call.</li>
+</ul>
+
+<h2>Getting out of it right now</h2>
+
+<ol>
+<li><strong>Do not reload yet if you have unsent text.</strong> Select it and copy it first — a reload loses the input box.</li>
+<li><strong>Close other tabs before reloading.</strong> Reloading into the same memory pressure just repeats the crash.</li>
+<li><strong>Reload.</strong> Most chat sites mount only the recent part of a conversation on a fresh load, so the tab comes back much lighter.</li>
+<li><strong>Do not scroll to the top afterwards.</strong> Scrolling back is what re-mounts everything and rebuilds the problem.</li>
+</ol>
+
+<h2>Preventing it</h2>
+
+<p>Link or attach large files rather than pasting them inline. Start a new conversation when one crosses a few hundred messages — <a href="/answers/continue-conversation-in-new-chat">carrying the conclusions across</a> rather than the transcript. And keep an eye on total browser memory if you habitually run many tabs.</p>
+
+<p>The deeper fix is for off-screen messages to stop costing what on-screen ones cost, which is what a speed engine does — and, unlike closing the conversation, it does not ask you to give anything up. <a href="/answers/why-long-ai-chats-get-slow">The mechanism in detail</a>.</p>

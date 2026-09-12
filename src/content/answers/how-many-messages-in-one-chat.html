@@ -1,0 +1,34 @@
+<h1>How many messages can one AI conversation hold?</h1>
+
+<p>There are two different limits and they get confused constantly, which is why the answers you find contradict each other.</p>
+
+<h2>Limit one: what the model can see</h2>
+
+<p>The context window. Every time you send a message the whole conversation is re-sent to the model, and there is a maximum size for that package. It is measured in tokens — roughly three-quarters of a word — not in messages.</p>
+
+<p>So "how many messages" has no fixed answer. Forty messages of dense code can exhaust a window that would hold four hundred short exchanges. When you cross it, the oldest material is dropped or summarised, and the model starts contradicting things you settled early. <a href="/answers/why-ai-forgets-conversation">Why that happens and what to do</a>.</p>
+
+<p>Importantly: <strong>most platforms do not stop you.</strong> The conversation keeps going. It just quietly stops including the beginning.</p>
+
+<h2>Limit two: what the page can hold</h2>
+
+<p>Separate, and usually the one you actually hit first. The browser tab has to render every message you scroll to. Long conversations become slow and eventually unstable long before any server-side limit appears. <a href="/answers/ai-chat-freezes-browser">What that looks like</a>.</p>
+
+<p>Some platforms impose a hard cap on conversation length for this reason and will refuse to continue, asking you to start a new chat. Others let you carry on indefinitely and let the browser suffer.</p>
+
+<h2>The practical answer</h2>
+
+<p>There is no universal number, and any article giving you one is describing a single product on a single day. What is reliably true:</p>
+
+<ul>
+<li><strong>Quality degrades before anything breaks.</strong> The useful signal is the model contradicting an early decision — not an error message.</li>
+<li><strong>Code and documents count far more than chat.</strong> Judge by content, not message count.</li>
+<li><strong>The page gets unusable before the model does, on long conversations.</strong> Slowness is the earlier symptom.</li>
+<li><strong>Starting fresh is cheap if you carry the conclusions.</strong> Expensive only if you carry nothing.</li>
+</ul>
+
+<h2>Working past both limits</h2>
+
+<p>You cannot enlarge the context window. You can stop losing what was in it: keep a searchable copy of the conversation, so a decision made three hundred messages ago is one search away and can be pulled back into the prompt when it matters — rather than depending on whether the model still happens to see it.</p>
+
+<p><a href="/answers/long-chat-toolkit">The full toolkit for long conversations</a></p>
