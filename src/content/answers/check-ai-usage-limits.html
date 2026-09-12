@@ -1,0 +1,42 @@
+<h1>How much of your AI usage limit is left, and why the app will not say</h1>
+
+<p>You are mid-task and the answer stops. "You have reached your limit." No warning, no countdown, and often no clear statement of when it lifts.</p>
+
+<h2>Why limits are invisible</h2>
+
+<p>Providers meter usage on rolling windows — typically a few hours, and a longer weekly one — and they mostly do not surface the counter. There are real reasons for it. The limit is often not a simple message count but a weighted allowance where a long answer with tool use costs more than a short reply, so any number shown would be approximate and would invite arguments. The thresholds also move; publishing one invites complaints when it changes.</p>
+
+<p>The result is that the one number you actually need — how much is left before you get cut off — is the number you cannot see.</p>
+
+<h2>What the platforms do publish</h2>
+
+<p>More than they show you. The same endpoints their own interfaces call often carry usage figures that are simply never rendered:</p>
+
+<ul>
+<li>Some expose a percentage of a window spent, plus the time it resets.</li>
+<li>Some report a plan tier, which is the only reliable statement of which limits apply to you at all.</li>
+<li>Some meter side features — deep research, image generation, voice — separately from the main allowance, which is why you can hit one wall while another is untouched.</li>
+<li>At least one publishes nothing whatsoever, and enforces purely by refusing requests. For that one, any number is a guess.</li>
+</ul>
+
+<h2>What you can do without any tools</h2>
+
+<ol>
+<li><strong>Know your window.</strong> Most limits are rolling, not daily. If you were cut off at 2pm on a five-hour window, you recover progressively from 7pm, not at midnight.</li>
+<li><strong>Front-load the expensive work.</strong> Long context, file analysis and tool use consume allowance faster than short questions. Do them at the start of a window.</li>
+<li><strong>Split across platforms deliberately.</strong> If you have access to more than one assistant, put routine work on one and keep the strongest allowance for work that needs it.</li>
+<li><strong>Watch for the slowdown before the wall.</strong> Some providers degrade to a smaller model before refusing outright. If answers suddenly get shorter and worse, you are close.</li>
+</ol>
+
+<h2>How Tvara shows it</h2>
+
+<p>Tvara reads the allowance figures a platform already publishes to its own interface and puts them in one panel, per account, with the reset time beside each.</p>
+
+<p>Two rules it does not break, because a confident wrong number here is worse than no number:</p>
+
+<ul>
+<li><strong>A figure nobody published is never invented.</strong> If a provider reports nothing, the row says so rather than estimating.</li>
+<li><strong>The window that stops you soonest leads.</strong> A weekly figure can look healthier than the five-hour one that is about to cut you off mid-answer, so the row leads with the nearer constraint and names which window it is.</li>
+</ul>
+
+<p>Allowance tracking is free. See <a href="/features">the full feature list and its honest limits</a>.</p>

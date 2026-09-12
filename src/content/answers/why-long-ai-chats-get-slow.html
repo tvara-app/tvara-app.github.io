@@ -1,0 +1,55 @@
+<h1>Why long AI chats get slow, and what actually fixes it</h1>
+
+<p>A conversation that was instant at twenty messages can take a second to respond to a keystroke at four hundred. The model did not get slower. The page did.</p>
+
+<h2>What is actually happening</h2>
+
+<p>Every message in a chat is a piece of the page: paragraphs, code blocks with syntax highlighting, rendered maths, images, copy buttons. A four-hundred-message conversation can be tens of thousands of individual elements, and the browser has to keep all of them measured and ready to paint.</p>
+
+<p>Three costs grow together:</p>
+
+<ul>
+<li><strong>Layout.</strong> Anything that changes size makes the browser re-measure the page. The more elements, the longer that takes — and it happens while you type.</li>
+<li><strong>Memory.</strong> Each element carries style and layout data. Long sessions climb into hundreds of megabytes, and once the tab is under memory pressure the browser starts working harder for everything.</li>
+<li><strong>Streaming.</strong> While an answer is being written, the page updates many times a second. Each update is measured against the whole document. A long document makes every frame of a new answer more expensive.</li>
+</ul>
+
+<p>This is why the slowdown feels sudden. Nothing degrades gradually; you cross a threshold where a frame no longer fits in its budget, and from then on every interaction visibly stutters.</p>
+
+<h2>What helps, in order of how much</h2>
+
+<h3>Start a new conversation</h3>
+
+<p>The most effective fix and the most annoying one. A fresh chat is a small page. The cost is your context: the model no longer knows what you established, and you are the one who has to carry it across.</p>
+
+<h3>Close other tabs</h3>
+
+<p>Memory pressure is shared. A chat competing with thirty other tabs behaves worse than the same chat alone. This helps more than people expect and costs nothing.</p>
+
+<h3>Collapse or avoid re-rendering huge code blocks</h3>
+
+<p>Syntax highlighting produces a separate element per token. One long file pasted into a chat can add thousands of elements by itself. If you are working with large files, linking or summarising beats pasting.</p>
+
+<h3>Reload the tab</h3>
+
+<p>Most chat sites mount only the recent part of a conversation on a fresh load and fetch older parts as you scroll. Reloading resets the page to that smaller state. The slowdown returns as you scroll back up, but it buys real time.</p>
+
+<h3>Reduce what the page renders</h3>
+
+<p>This is what the hosts themselves do — mount a window of messages and unload the rest. It works, which is why they do it, and it is also why searching your own conversation with <kbd>Ctrl+F</kbd> stops finding things: the text is genuinely not in the page.</p>
+
+<h2>What does not help</h2>
+
+<ul>
+<li><strong>A faster computer.</strong> It raises the threshold. It does not remove it.</li>
+<li><strong>Clearing cookies or cache.</strong> The cost is the live document, not stored data.</li>
+<li><strong>Deleting old messages.</strong> On most platforms you cannot delete individual turns, and where you can, you lose the content permanently for a temporary gain.</li>
+</ul>
+
+<h2>Where Tvara fits</h2>
+
+<p>Tvara keeps off-screen messages from costing what on-screen ones do, without deleting anything. The conversation stays whole and scrolls the way it always did; the work of keeping it painted goes down.</p>
+
+<p>It also solves the side effect: because it keeps its own copy of the conversation on your machine, searching still works on the parts the page has unloaded. The speed engine, the minimap and the chat card are free on every supported site.</p>
+
+<p>Read <a href="/features">what each feature does and where it stops</a>, or <a href="/answers/search-old-ai-conversations">how to find something in a conversation the page has unloaded</a>.</p>

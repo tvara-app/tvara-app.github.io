@@ -1,0 +1,47 @@
+<h1>How to export your AI chat history before you lose it</h1>
+
+<p>Chat history feels permanent until it is not. Accounts get closed, retention policies change, a shared login deletes a thread, a provider sunsets a feature. Your conversations are on someone else's computer under someone else's terms.</p>
+
+<h2>The official route, and its limits</h2>
+
+<p>Every major assistant offers an account data export. The flow is broadly the same: settings, data controls, request export, wait for an email, download a zip.</p>
+
+<p>It works, and you should do it. But know what it is:</p>
+
+<ul>
+<li><strong>It is slow.</strong> Hours, sometimes longer. Useless when you need something now.</li>
+<li><strong>It is a snapshot.</strong> Valid the moment it was made. Everything after it needs another request.</li>
+<li><strong>It is a data dump, not a document.</strong> Usually JSON built for the provider's own storage, with internal ids and epoch timestamps. Readable by a program, unpleasant for a person.</li>
+<li><strong>It is per platform.</strong> Three assistants means three separate exports in three different shapes.</li>
+<li><strong>The link expires.</strong> Download it promptly or repeat the whole thing.</li>
+</ul>
+
+<h2>What a good export actually looks like</h2>
+
+<p>Most people want one of three things, and they are genuinely different:</p>
+
+<ul>
+<li><strong>Something to read.</strong> One page, every conversation, searchable with <kbd>Ctrl+F</kbd>, printable. Not a folder of JSON.</li>
+<li><strong>Something to analyse.</strong> A spreadsheet row per conversation — when, which platform, how many messages. One row per message sounds better and is not: an answer is four thousand characters of prose and a cell is one line.</li>
+<li><strong>Something to keep.</strong> A complete, documented file with every field spelled out and real ISO timestamps, so it is still readable in five years by whatever you have then.</li>
+</ul>
+
+<h2>Backup is not the same as export</h2>
+
+<p>An export is for reading. A backup is for restoring — it needs to come back complete after a reinstall, which means it should be encrypted, because it contains everything you have ever asked.</p>
+
+<p>If you only ever make exports, a lost laptop costs you the archive. If you only ever make backups, you cannot read your own history without the tool that wrote it. Both is correct.</p>
+
+<h2>How Tvara handles it</h2>
+
+<p>Because Tvara already keeps a local copy of your conversations, export is instant and offline — no request, no waiting email, no expiring link. Three formats, one ordering, so they cannot disagree with each other:</p>
+
+<ul>
+<li><strong>A page (<code>.html</code>)</strong> — one self-contained file, every conversation in full, with a contents list. <kbd>Ctrl/Cmd+P</kbd> paginates it per conversation if you want paper.</li>
+<li><strong>A list (<code>.csv</code>)</strong> — one row per conversation, with a byte-order mark so spreadsheets read the text correctly instead of as mojibake.</li>
+<li><strong>Everything (<code>.json</code>)</strong> — every field named, ISO 8601 times, and a block inside the file explaining the file.</li>
+</ul>
+
+<p>Export is free. Encrypted backup and restore are Pro. Either way the file lands in your Downloads folder and nothing is transmitted.</p>
+
+<p>See also <a href="/answers/recover-deleted-ai-chat">what happens when a conversation is deleted on the site</a>.</p>

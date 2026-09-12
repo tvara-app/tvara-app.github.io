@@ -11,8 +11,16 @@ import Terms from "./pages/Terms.jsx";
 import Refunds from "./pages/Refunds.jsx";
 import Thanks from "./pages/Thanks.jsx";
 import NotFound from "./pages/NotFound.jsx";
+import Answers from "./pages/Answers.jsx";
+import Answer from "./pages/Answer.jsx";
+import { ANSWERS } from "./answers.js";
 
-const PAGES = { "/": Home, "/features": Features, "/pricing": Pricing, "/guide": Guide, "/faq": Faq, "/privacy": Privacy, "/terms": Terms, "/refunds": Refunds, "/thanks": Thanks };
+const PAGES = {
+  "/": Home, "/features": Features, "/pricing": Pricing, "/guide": Guide, "/faq": Faq,
+  "/privacy": Privacy, "/terms": Terms, "/refunds": Refunds, "/thanks": Thanks,
+  "/answers": Answers,
+  ...Object.fromEntries(ANSWERS.map((a) => ["/" + a.slug, () => <Answer item={a} />])),
+};
 
 const strip = (jsx) => renderToStaticMarkup(jsx).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 
@@ -64,12 +72,30 @@ export function schemaFor(route, siteUrl) {
                     "Resume", "Markdown and JSON backup", "Total Recall", "Context Bridge", "Allowance tracking"],
     });
   } else {
+    /* An article sits under /answers, and saying so is what makes the crumb
+       trail in the result match the one on the page. */
+    const trail = [{ "@type": "ListItem", position: 1, name: "Tvara", item: siteUrl + "/" }];
+    if (route.answer) trail.push({ "@type": "ListItem", position: 2, name: "Answers", item: siteUrl + "/answers" });
+    trail.push({ "@type": "ListItem", position: trail.length + 1, name: route.crumb, item: url });
+    blocks.push({ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: trail });
+  }
+
+  if (route.answer) {
     blocks.push({
-      "@context": "https://schema.org", "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Tvara", item: siteUrl + "/" },
-        { "@type": "ListItem", position: 2, name: route.crumb, item: url },
-      ],
+      "@context": "https://schema.org", "@type": "Article",
+      headline: route.answer.crumb,
+      name: route.title,
+      description: route.desc,
+      /* The prose date, not the build date. A dateModified that moves every
+         deploy tells the crawler the text changed when it did not, and the
+         signal stops meaning anything. */
+      datePublished: route.answer.updated,
+      dateModified: route.answer.updated,
+      inLanguage: "en",
+      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      author: { "@id": siteUrl + "/#org" },
+      publisher: { "@id": siteUrl + "/#org" },
+      isPartOf: { "@id": siteUrl + "/#site" },
     });
   }
 

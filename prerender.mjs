@@ -1,7 +1,8 @@
 /* Every route becomes a real HTML file here, with its own head. Nothing renders
    in the browser: React is a build-time tool in this project, and the only
    script the reader downloads is the motion layer. */
-import { readFileSync, writeFileSync, rmSync, cpSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, rmSync, cpSync, existsSync, mkdirSync } from "node:fs";
+import { dirname } from "node:path";
 
 /* The address the pages call themselves. It has to be the address that
    actually answers, or every canonical tag points at a dead host — so this
@@ -67,7 +68,11 @@ ${body}
 }
 
 for (const route of ROUTES) {
-  writeFileSync("dist/" + (route.slug || "index") + ".html", document_(route, renderBody(route.path), { index: route.index !== false }));
+  /* A slug can carry a directory (answers/…), so the folder has to exist before
+     the file does. */
+  const file = "dist/" + (route.slug || "index") + ".html";
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(file, document_(route, renderBody(route.path), { index: route.index !== false }));
 }
 
 writeFileSync("dist/404.html", document_(
