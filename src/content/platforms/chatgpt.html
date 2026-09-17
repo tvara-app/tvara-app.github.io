@@ -1,0 +1,30 @@
+<h1>A long chat extension for ChatGPT</h1>
+
+<p>Tvara is a Chrome extension for ChatGPT conversations that have grown long. It keeps a long chat responsive, lets you jump to any message in it, and keeps a copy of your ChatGPT history on your own computer, where you can search it and export it.</p>
+
+<h2>Why a long ChatGPT conversation starts to lag</h2>
+
+<p>Every message ChatGPT writes stays part of the page: paragraphs, code blocks, tables, maths. Hundreds of turns in, the browser has to re-measure all of it while you type, so the input box stutters, scrolling jumps and new answers stream slowly. ChatGPT copes by unloading older messages, which is also why <kbd>Ctrl+F</kbd> stops finding things you remember reading. <a href="/answers/why-long-ai-chats-get-slow">Why long chats get slow</a> explains it in full.</p>
+
+<h2>What Tvara adds to ChatGPT</h2>
+
+<ul>
+<li><strong>Speed engine.</strong> Messages outside the screen are put to sleep and wake as you scroll back to them. Nothing is deleted, and the popup shows how many are asleep right now.</li>
+<li><strong>Minimap.</strong> A thin strip on the right edge with one mark per message, yours and ChatGPT's in different shades. Hover for a preview, click to jump there, however far back it is.</li>
+<li><strong>Outline and in-chat search.</strong> A table of contents built from your prompts and the headings in the answers, and search across the whole conversation, including messages that are asleep.</li>
+<li><strong>Real send times.</strong> The time each ChatGPT message was actually sent, read from the page itself without a network request.</li>
+<li><strong>Chat Card.</strong> Hover a chat in the ChatGPT sidebar to see how many messages it holds and when you last opened it, before you open it.</li>
+<li><strong>Plan and usage.</strong> Your plan and the usage figures ChatGPT publishes. Codex usage is labelled as Codex, so it is never mistaken for your chat allowance, and a figure ChatGPT does not publish reads "not reported" rather than a guess.</li>
+</ul>
+
+<p>On ChatGPT every one of these is free.</p>
+
+<h2>Your ChatGPT history, kept on your computer</h2>
+
+<p>After you install it, Tvara copies your ChatGPT history into a local archive in the background. The first copy usually takes five to ten minutes, and longer for a very large history. If a chat is deleted on ChatGPT, your copy stays until you decide what to do with it. You can export the whole archive at any time, free, as a readable web page, a spreadsheet or JSON.</p>
+
+<p>Searching every archived chat at once (Total Recall), encrypted backups and Context Bridge, which carries context from an old chat into a new prompt, are part of Pro: $1 once, on up to five devices.</p>
+
+<h2>Private by design</h2>
+
+<p>No chat text, title or prompt is sent to Tvara. The only server is the licence issuer, and it never sees a conversation. <a href="/privacy">The privacy policy</a> lists every connection the extension makes.</p>

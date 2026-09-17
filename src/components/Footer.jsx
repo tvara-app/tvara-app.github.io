@@ -1,4 +1,5 @@
-import { MAIL, mailTo } from "../routes.js";
+import { MAIL, mailTo, STORE_URL } from "../routes.js";
+import { PLATFORMS } from "../platforms.js";
 
 export default function Footer() {
   return (
@@ -14,6 +15,13 @@ export default function Footer() {
           <a href="/terms">Terms</a>
           <a href="/refunds">Refunds</a>
           <a href={mailTo()} target="_blank" rel="noopener noreferrer">{MAIL}</a>
+        </span>
+      </div>
+      <div className="foot-row foot-works">
+        <span>Works with</span>
+        <span className="foot-links">
+          {PLATFORMS.map((p) => <a key={p.slug} href={"/" + p.slug}>{p.name}</a>)}
+          <a href={STORE_URL} rel="noopener">Chrome Web Store</a>
         </span>
       </div>
       <p className="foot-note">

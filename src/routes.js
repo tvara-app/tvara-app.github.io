@@ -2,11 +2,16 @@
    sitemap and llms.txt, so a page cannot exist in one of them and be missing
    from another. */
 import { ANSWERS } from "./answers.js";
+import { PLATFORMS } from "./platforms.js";
+
+/* The listing itself. The id URL redirects to whatever slug the store derives
+   from the current name, so a rename never breaks it. */
+export const STORE_URL = "https://chromewebstore.google.com/detail/ajpnackhheeafgecocapboccaplcnaje";
 
 export const ROUTES = [
-  { path: "/", slug: "", nav: "Overview", title: "Tvara · AI Chat Speed, Archive & Recall",
+  { path: "/", slug: "", nav: "Overview", title: "Tvara · Long Chat Extension for ChatGPT, Claude & Gemini",
     crumb: "Overview",
-    desc: "A browser extension for long AI chats: responsiveness, navigation, local archiving, archive search, encrypted backup, context handoff, and provider usage tracking." },
+    desc: "A Chrome extension for long AI chats on ChatGPT, Claude, Gemini, DeepSeek, Grok and Perplexity: stops the lag, jumps to any message, and saves your chats locally." },
   { path: "/features", slug: "features", nav: "Features", title: "Every Tvara feature, and its honest limits",
     crumb: "Features",
     desc: "Every feature in Tvara, explained: speed engine, minimap, outline, stars, search, timestamps, Chat Card, resume, backups, Total Recall, Context Bridge, allowance tracking and deletion quarantine." },
@@ -37,6 +42,10 @@ export const ROUTES = [
   /* Every article is a route, so the navigation, the prerenderer, the sitemap
      and llms.txt all learn about it from one place. nav:null keeps the bar
      short — /answers is the door. */
+  ...PLATFORMS.map((p) => ({
+    path: "/" + p.slug, slug: p.slug, nav: null, platform: p,
+    crumb: "Tvara for " + p.name, title: p.title, desc: p.desc,
+  })),
   ...ANSWERS.map((a) => ({
     path: "/" + a.slug, slug: a.slug, nav: null, answer: a,
     crumb: a.crumb, title: a.title, desc: a.desc,

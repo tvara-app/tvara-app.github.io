@@ -1,0 +1,35 @@
+<h1>Privacy Policy</h1>
+<p><em>Effective: 10 September 2026</em></p>
+
+<h3>Chat content stays on your device</h3>
+<p>Tvara reads chats from supported AI sites only to provide local speed, navigation, search, archive, backup, context-handoff, and usage-tracking features. It does not send chat text, titles, prompts, exports, or chat URLs to Tvara or another third party. Tvara does not use behavioural analytics, tracking pixels, advertising identifiers, or third-party SDKs.</p>
+
+<h3>What Tvara connects to</h3>
+<ul>
+  <li><strong>Supported AI sites:</strong> ChatGPT, Claude, Gemini, Perplexity, DeepSeek, and Grok. Tvara reads conversations you open using your existing browser session and stores its archive locally.</li>
+  <li><strong>Google:</strong> after you choose Google sign-in for trial, purchase, restore, or device management, Tvara requests OpenID and email identity information only.</li>
+  <li><strong>Licence issuer:</strong> a Cloudflare Worker issues trials, validates purchases, restores purchases, enforces device limits, processes refunds, and revokes entitlements. It does not receive chat content.</li>
+  <li><strong>Dodo Payments:</strong> our merchant of record processes checkout and refunds under its own terms.</li>
+</ul>
+
+<h3>What the licence issuer stores</h3>
+<p>The issuer stores the minimum records needed for identity, trial eligibility, licence ownership, device limits, fraud prevention, refunds, and support: identity and email fingerprints, an encrypted signed-in email address, licence and device identifiers or hashes, purchase and webhook references, trial timestamps, revocation state, and short-lived security and rate-limit records.</p>
+<p>Identity and entitlement records are retained for up to 400 days of inactivity and longer only where a live licence, legal obligation, refund, fraud-prevention need, or support request requires it. Hashed IP abuse signals are retained for up to 30 days.</p>
+
+<h3>Local archive, backup, and usage tracking</h3>
+<p>Chats Tvara archives are kept in extension storage on your device. Exports and encrypted backup files are written to your Downloads folder. Your backup passphrase is not stored or recoverable by Tvara.</p>
+<p>Usage tracking observes provider information only when a provider exposes a figure Tvara can reliably identify. It does not alter, delay, block, or replay provider requests. If a figure is unavailable, Tvara shows “not reported.”</p>
+
+<h3>Permissions</h3>
+<ul>
+  <li><code>storage</code> and <code>unlimitedStorage</code> keep settings and your local archive.</li>
+  <li><code>downloads</code> writes exports and encrypted backup files to Downloads.</li>
+  <li><code>alarms</code> schedules local archive, backup, entitlement, and session checks across service-worker suspension.</li>
+  <li><code>notifications</code> displays local deletion-review, sign-out, and allowance notices.</li>
+  <li><code>identity</code> opens Google sign-in only after you choose it and requests <code>openid email</code> only.</li>
+  <li>Host access is limited to supported AI sites for automatic local features and this post-purchase page.</li>
+</ul>
+<p>Tvara does not request browser history, tabs, cookies, bookmarks, web requests, scripting, or access to sites outside its named host permissions.</p>
+
+<h3>Your choices</h3>
+<p>You can remove local archive data from the extension and backup files from your device. For access, deletion, support, or refund requests, email <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=tvara.exten%40gmail.com&amp;su=Tvara%20support%20request&amp;body=Hello%20Tvara%20Support%2C%0A%0AI%20need%20help%20with%3A%20%0A%0AThanks%2C" target="_blank" rel="noopener noreferrer">tvara.exten@gmail.com</a>. Deleting identity or licence records can release device slots and prevent purchase restoration.</p>

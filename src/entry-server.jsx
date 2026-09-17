@@ -14,12 +14,16 @@ import NotFound from "./pages/NotFound.jsx";
 import Answers from "./pages/Answers.jsx";
 import Answer from "./pages/Answer.jsx";
 import { ANSWERS } from "./answers.js";
+import Platform from "./pages/Platform.jsx";
+import { PLATFORMS } from "./platforms.js";
+import { STORE_URL } from "./routes.js";
 
 const PAGES = {
   "/": Home, "/features": Features, "/pricing": Pricing, "/guide": Guide, "/faq": Faq,
   "/privacy": Privacy, "/terms": Terms, "/refunds": Refunds, "/thanks": Thanks,
   "/answers": Answers,
   ...Object.fromEntries(ANSWERS.map((a) => ["/" + a.slug, () => <Answer item={a} />])),
+  ...Object.fromEntries(PLATFORMS.map((p) => ["/" + p.slug, () => <Platform item={p} />])),
 };
 
 const strip = (jsx) => renderToStaticMarkup(jsx).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
@@ -51,7 +55,7 @@ export function schemaFor(route, siteUrl) {
       "@context": "https://schema.org", "@type": "Organization",
       "@id": siteUrl + "/#org", name: "Tvara", url: siteUrl + "/",
       logo: siteUrl + "/logo.png", email: "tvara.exten@gmail.com",
-      description: route.desc,
+      description: route.desc, sameAs: [STORE_URL],
     });
     blocks.push({
       "@context": "https://schema.org", "@type": "WebSite",
@@ -62,7 +66,7 @@ export function schemaFor(route, siteUrl) {
       "@context": "https://schema.org", "@type": "SoftwareApplication",
       name: "Tvara", applicationCategory: "BrowserApplication",
       operatingSystem: "Chrome and Edge desktop",
-      url: siteUrl,
+      url: siteUrl, installUrl: STORE_URL, downloadUrl: STORE_URL,
       description: route.desc,
       offers: [
         { "@type": "Offer", price: "0", priceCurrency: "USD", name: "Free" },
@@ -113,6 +117,16 @@ export function schemaFor(route, siteUrl) {
         name: heading.replace(/^\d+\s*·\s*/, ""),
         text,
         url: url + "#step-" + (i + 1),
+      })),
+    });
+  }
+
+  if (route.platform) {
+    blocks.push({
+      "@context": "https://schema.org", "@type": "FAQPage",
+      mainEntity: route.platform.faq.map((it) => ({
+        "@type": "Question", name: it.q,
+        acceptedAnswer: { "@type": "Answer", text: it.a },
       })),
     });
   }

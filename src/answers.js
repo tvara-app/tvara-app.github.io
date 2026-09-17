@@ -30,27 +30,27 @@ export const ANSWERS = [
     desc: "Long AI chats fail in five distinct ways: speed, navigation, search, lost context and invisible limits. What fixes each one, with and without extra tools.",
   },
   {
-    slug: "answers/why-long-ai-chats-get-slow", html: slow, updated: "2026-09-12",
+    slug: "answers/why-long-ai-chats-get-slow", html: slow, updated: "2026-09-17",
     crumb: "Why long chats get slow",
-    title: "Why long AI chats get slow, and what actually fixes it · Tvara",
+    title: "Why long ChatGPT, Claude and Gemini chats get slow, and the fix · Tvara",
     desc: "A long ChatGPT or Claude conversation lags because the page holds tens of thousands of elements, not because the model slowed down. What helps, in order, and what does nothing.",
   },
   {
-    slug: "answers/search-old-ai-conversations", html: find, updated: "2026-09-12",
+    slug: "answers/search-old-ai-conversations", html: find, updated: "2026-09-17",
     crumb: "Find an old chat",
-    title: "How to find something you said in an old AI chat · Tvara",
+    title: "How to search old ChatGPT, Claude and Gemini conversations · Tvara",
     desc: "Ctrl+F fails on long chats because the page unloads its own history, and platform search is title-first. Four methods that work, and why a local archive solves it properly.",
   },
   {
-    slug: "answers/export-ai-chat-history", html: out, updated: "2026-09-12",
+    slug: "answers/export-ai-chat-history", html: out, updated: "2026-09-17",
     crumb: "Export your history",
-    title: "How to export your AI chat history before you lose it · Tvara",
+    title: "How to export ChatGPT, Claude and Gemini chat history · Tvara",
     desc: "Official account exports are slow snapshots in a shape built for machines. What a readable export looks like, why backup is a different job, and how to get both.",
   },
   {
-    slug: "answers/check-ai-usage-limits", html: limits, updated: "2026-09-12",
+    slug: "answers/check-ai-usage-limits", html: limits, updated: "2026-09-17",
     crumb: "See your usage limit",
-    title: "How much of your AI usage limit is left · Tvara",
+    title: "How much of your ChatGPT, Claude or Gemini limit is left · Tvara",
     desc: "Why assistants hide the counter, what they publish anyway, how to plan around a rolling window, and why an invented number is worse than none.",
   },
   {
@@ -84,9 +84,9 @@ export const ANSWERS = [
     desc: "Where your conversations are stored, whether they train models, who can read them, what deletion really does, and how to judge what an extension adds to the picture.",
   },
   {
-    slug: "answers/choosing-an-ai-chat-extension", html: pick, updated: "2026-09-12",
+    slug: "answers/choosing-an-ai-chat-extension", html: pick, updated: "2026-09-17",
     crumb: "Judging an extension",
-    title: "How to judge a browser extension for AI chats · Tvara",
+    title: "How to choose a Chrome extension for long ChatGPT and Claude chats · Tvara",
     desc: "Six things that separate these tools: what they ask to read, whether your chats leave your machine, how they fail when a site redesigns, and whether they delete messages to look fast.",
   },
   {
@@ -96,9 +96,9 @@ export const ANSWERS = [
     desc: "A chat answer has no headings, no contents and a scrollbar measuring the wrong thing. Five techniques that work now, and the navigation gap underneath them.",
   },
   {
-    slug: "answers/ai-chat-freezes-browser", html: crash, updated: "2026-09-12",
+    slug: "answers/ai-chat-freezes-browser", html: crash, updated: "2026-09-17",
     crumb: "When the tab freezes",
-    title: "Why an AI chat freezes or crashes your browser tab · Tvara",
+    title: "Why a long ChatGPT or Claude chat freezes your browser tab · Tvara",
     desc: "A long conversation full of code and images can exhaust a tab's memory budget. What pushes it over, how to get out of it without losing unsent text, and how to stop it recurring.",
   },
   {

@@ -1,13 +1,9 @@
-# The site is static, so it ships as a Worker with an assets binding and no
-# script of its own. Pages was the obvious home for it, but this account's
-# /pages/projects endpoint answers 8000000 to every create, and Workers static
-# assets is Cloudflare's own recommendation for new projects anyway.
-name = "tvara-site"
+# The site is static and lives on Cloudflare Pages: files served from the edge,
+# no Worker invoked, nothing metered. Response headers come from dist/_headers,
+# not from code, so there is no script to run and nothing to bill.
+name = "tvara"
+pages_build_output_dir = "dist"
 compatibility_date = "2026-08-30"
 
-[assets]
-directory = "dist"
-# /features serves features.html, and a bad path gets the home page rather than
-# a Cloudflare error page wearing someone else's branding.
-html_handling = "auto-trailing-slash"
-not_found_handling = "single-page-application"
+# The custom domain is attached to the Pages project, not routed here:
+#   node tools/attach-domain.mjs tvara.app

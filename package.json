@@ -1,14 +1,23 @@
 {
   "name": "tvara-site",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
-  "description": "The Tvara marketing and legal site. Static, multipage, no runtime dependencies.",
+  "description": "The Tvara marketing and legal site. React, prerendered to static HTML, no runtime services.",
   "scripts": {
-    "build": "node build.mjs",
-    "check": "node build.mjs --check",
-    "serve": "node build.mjs && node --run serve:dist",
-    "serve:dist": "npx --yes serve dist",
-    "deploy": "node build.mjs && npx --yes wrangler@4 pages deploy dist --project-name tvara-site"
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node prerender.mjs",
+    "preview": "npm run build && npx --yes serve dist",
+    "deploy": "npm run build && npx --yes wrangler@4 pages deploy dist --project-name tvara --branch main --commit-dirty=true && node tools/indexnow.mjs",
+    "indexnow": "node tools/indexnow.mjs",
+    "domain": "node tools/attach-domain.mjs"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.0",
+    "vite": "^7.1.9"
   }
 }
