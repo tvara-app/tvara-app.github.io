@@ -59,13 +59,18 @@ export function schemaFor(route, siteUrl) {
     });
     blocks.push({
       "@context": "https://schema.org", "@type": "WebSite",
-      "@id": siteUrl + "/#site", name: "Tvara", url: siteUrl + "/",
+      "@id": siteUrl + "/#site", name: "Tvara", alternateName: "Tvara extension", url: siteUrl + "/",
       inLanguage: "en", publisher: { "@id": siteUrl + "/#org" },
     });
     blocks.push({
       "@context": "https://schema.org", "@type": "SoftwareApplication",
-      name: "Tvara", applicationCategory: "BrowserApplication",
+      "@id": siteUrl + "/#app", name: "Tvara",
+      /* The Chrome Web Store listing name, so both pages resolve to one product. */
+      alternateName: "Tvara: Long AI Chat Speed, Search & Backup",
+      applicationCategory: "BrowserApplication", applicationSubCategory: "Productivity",
       operatingSystem: "Chrome and Edge desktop",
+      image: siteUrl + "/logo.png", screenshot: siteUrl + "/social-card.jpg",
+      publisher: { "@id": siteUrl + "/#org" }, sameAs: [STORE_URL],
       url: siteUrl, installUrl: STORE_URL, downloadUrl: STORE_URL,
       description: route.desc,
       offers: [
@@ -73,7 +78,8 @@ export function schemaFor(route, siteUrl) {
         { "@type": "Offer", price: "1", priceCurrency: "USD", name: "Pro · one-time" },
       ],
       featureList: ["Speed engine", "Minimap", "Outline", "In-chat search", "Message timestamps",
-                    "Resume", "Markdown and JSON backup", "Total Recall", "Context Bridge", "Allowance tracking"],
+                    "Resume", "Markdown and JSON backup", "Total Recall", "Context Bridge", "Continue in a new chat",
+                    "Starred messages", "Chat Card", "Allowance tracking", "Deletion quarantine"],
     });
   } else {
     /* An article sits under /answers, and saying so is what makes the crumb
@@ -96,6 +102,7 @@ export function schemaFor(route, siteUrl) {
       datePublished: route.answer.updated,
       dateModified: route.answer.updated,
       inLanguage: "en",
+      image: siteUrl + "/social-card.jpg",
       mainEntityOfPage: { "@type": "WebPage", "@id": url },
       author: { "@id": siteUrl + "/#org" },
       publisher: { "@id": siteUrl + "/#org" },
@@ -143,4 +150,5 @@ export function schemaFor(route, siteUrl) {
   return blocks;
 }
 
-export { ROUTES };
+export { ROUTES, STORE_URL };
+export { ORIGIN } from "./routes.js";

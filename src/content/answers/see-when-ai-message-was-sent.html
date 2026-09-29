@@ -1,0 +1,36 @@
+<h1>How to see when an AI chat message was sent</h1>
+
+<p>Short answer: ChatGPT, Claude and Gemini record when every message was sent but do not show it. Read it from a data export, or use an extension that shows the time on hover.</p>
+
+<p>ChatGPT, Claude and Gemini do not show a time on individual messages. You can scroll a conversation you have been building for three weeks and have no idea whether an answer came from Monday or from ten minutes ago — which matters the moment you ask "was this before or after the model changed?", or need to reconstruct when a decision was made.</p>
+
+<h2>The time exists — it is just not displayed</h2>
+
+<p>Every provider records when a message was created. It is stored with the conversation, used for sorting and syncing, and left out of the interface to keep it clean. So the question is not whether the timestamp exists but where you can read it.</p>
+
+<h2>Reading it without any tools</h2>
+
+<ul>
+<li><strong>ChatGPT.</strong> Request a data export from the Data controls section of settings. The download contains a <code>conversations.json</code> file in which every message carries a <code>create_time</code>, a Unix timestamp in seconds. Accurate, complete, and no help in the moment: the export arrives by email and has to be searched by hand.</li>
+<li><strong>Claude.</strong> The data export in Claude's settings works the same way: each message in the file has a creation time.</li>
+<li><strong>Gemini.</strong> With Gemini activity saving switched on, your Google My Activity page lists each prompt with the time you sent it. It shows your prompts, not the conversation as it reads on screen.</li>
+<li><strong>Everywhere.</strong> The sidebar tells you when a conversation was last active, which dates the most recent message and nothing else.</li>
+</ul>
+
+<p>None of these answer "when did I send <em>this</em> one" while you are looking at it.</p>
+
+<h2>What a browser can and cannot know</h2>
+
+<p>A browser extension sees the page, and the page is built from data the site sends. Where that data includes send times, an extension can show them for the whole history. Where it does not, no extension can recover them honestly — the most it can say is when it first saw a message on this device. A tool that shows a precise time for a message it never had a time for is guessing, and a confident wrong time is worse than none.</p>
+
+<h2>How Tvara shows it</h2>
+
+<p>Hover any message and a small time tag appears.</p>
+
+<ul>
+<li><strong>On ChatGPT</strong> you get the real send time for your whole history, read locally from the app's own state by a read-only script that makes no network request.</li>
+<li><strong>On other supported sites</strong> the browser has no historical send time, so a message is stamped when the extension first saw it and labelled <em>first seen · this device</em>.</li>
+<li><strong>Messages older than your install</strong> on those sites say <em>time unknown</em> rather than inventing one.</li>
+</ul>
+
+<p>Timestamps are free, and they are kept in Markdown and JSON backups too. <a href="/features">See every feature</a> · <a href="/chatgpt-extension">Tvara on ChatGPT</a></p>

@@ -51,9 +51,18 @@ free and unmetered — adding a script (for a redirect, say) would turn every
 request into a billable invocation, so response headers come from
 `static/_headers` instead.
 
-`SITE_URL` sets the address the pages call themselves. It defaults to the
-workers.dev hostname; once a custom domain is bound to this Worker, deploy with:
+`ORIGIN` in `src/routes.js` is the address the pages call themselves:
+canonicals, sitemap, OG tags, llms.txt and IndexNow all read it. There is no
+environment override, and `npm run deploy` refuses to ship if that host does
+not answer.
 
-```bash
-SITE_URL=https://tvara.app npm run deploy
-```
+Moving to tvara.app:
+
+1. `npx wrangler login`, then `npm run domain`. It attaches tvara.app and waits
+   until the domain answers.
+2. Set `ORIGIN` to `https://tvara.app`, then `npm run deploy`.
+3. 301 tvara.pages.dev to tvara.app with a Cloudflare Bulk Redirect (preserve
+   path and query). `_redirects` cannot match on host.
+4. Search Console: add tvara.app as a Domain property, submit `/sitemap.xml`,
+   and file a Change of Address from the tvara.pages.dev property. Bing
+   Webmaster Tools can import the site from Search Console.

@@ -4,13 +4,9 @@
 import { readFileSync, writeFileSync, rmSync, cpSync, existsSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
 
-/* The address the pages call themselves. It has to be the address that
-   actually answers, or every canonical tag points at a dead host — so this
-   stays on the workers.dev name until tvara.app is bound to this Worker, and
-   the deploy is then run as SITE_URL=https://tvara.app npm run deploy. */
-const SITE_URL = (process.env.SITE_URL || "https://tvara.pages.dev").replace(/\/$/, "");
 const OG = "/social-card.jpg";
-const { renderBody, renderNotFound, schemaFor, ROUTES } = await import("./dist-ssr/entry-server.js");
+/* ORIGIN lives in src/routes.js, with the reason it has no env override. */
+const { renderBody, renderNotFound, schemaFor, ROUTES, STORE_URL, ORIGIN: SITE_URL } = await import("./dist-ssr/entry-server.js");
 
 /* The client build owns the asset hashes; take the tags it wrote rather than
    guessing filenames. */
@@ -43,7 +39,8 @@ ${index ? `<link rel="canonical" href="${canonical}" />` : `<meta name="robots" 
 <meta property="og:site_name" content="Tvara" />
 <meta property="og:title" content="${esc(route.title)}" />
 <meta property="og:description" content="${esc(route.desc)}" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="${route.answer ? "article" : "website"}" />
+${route.answer ? `<meta property="article:modified_time" content="${route.answer.updated}" />` : ""}
 <meta property="og:url" content="${canonical}" />
 <meta property="og:image" content="${SITE_URL}${OG}" />
 <meta property="og:image:width" content="1200" />
@@ -80,16 +77,23 @@ writeFileSync("dist/404.html", document_(
   renderNotFound(), { index: false }
 ));
 
-writeFileSync("dist/robots.txt", `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+/* Answer engines named outright: a later rule for * must not shut them out by
+   accident. Content-Signal is Cloudflare's opt-in vocabulary; others ignore it. */
+const ANSWER_BOTS = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
+  "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended", "DuckAssistBot", "meta-externalagent", "CCBot"];
+writeFileSync("dist/robots.txt", [
+  ...ANSWER_BOTS.map((b) => `User-agent: ${b}`), "Allow: /", "",
+  "User-agent: *", "Content-Signal: search=yes, ai-input=yes, ai-train=yes", "Allow: /", "",
+  `Sitemap: ${SITE_URL}/sitemap.xml`, ""].join("\n"));
 
-/* lastmod is the build date: these pages change when the site is rebuilt and
-   never on their own, so anything finer would be a number we cannot vouch for.
+/* lastmod: the prose date for articles and platform pages, the build date for
+   the rest. A date that moves every deploy teaches crawlers to ignore it.
    A noindex route is kept OUT — a sitemap is a request to index. */
 const LASTMOD = new Date().toISOString().slice(0, 10);
 writeFileSync("dist/sitemap.xml", ['<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
   ...ROUTES.filter((r) => r.index !== false)
-    .map((r) => `  <url><loc>${SITE_URL}/${r.slug}</loc><lastmod>${LASTMOD}</lastmod></url>`),
+    .map((r) => `  <url><loc>${SITE_URL}/${r.slug}</loc><lastmod>${(r.answer || r.platform)?.updated || LASTMOD}</lastmod></url>`),
   "</urlset>", ""].join("\n"));
 
 /* llms.txt: the same map the navigation gives a person, for a model that was
@@ -110,7 +114,32 @@ writeFileSync("dist/llms.txt", [
   "- Public launch support is current Chrome and Edge desktop browsers.",
   "- Exporting an archive never requires a licence.",
   "",
+  "## What it fixes",
+  "- A long ChatGPT, Claude or Gemini chat lags or freezes the tab: the speed engine puts off-screen messages to sleep. Free.",
+  "- Finding one message in a long chat: minimap, outline, starred messages and in-chat search that reaches unloaded messages. Free.",
+  "- Seeing when a message was sent: hover timestamps, with real send times on ChatGPT. Free.",
+  "- A chat hit its maximum length or context limit: Continue in a new chat and Context Bridge carry the context over. Pro.",
+  "- Searching every past chat across platforms: Total Recall, a local archive. Pro.",
+  "- Running out of usage allowance without warning: provider-reported limits, with alerts at 20% and 10%. Free.",
+  "- Exporting chats: Markdown and JSON export free; encrypted scheduled backups with Pro.",
+  "",
+  "## Links",
+  `- [Install from the Chrome Web Store](${STORE_URL})`,
+  `- [Full text of every article](${SITE_URL}/llms-full.txt)`,
+  "",
 ].join("\n"));
+
+/* llms-full.txt: the articles themselves, one fetch instead of a crawl. */
+const plain = (html) => html
+  .replace(/<h1[^>]*>(.*?)<\/h1>/g, "# $1").replace(/<h2[^>]*>(.*?)<\/h2>/g, "## $1").replace(/<h3[^>]*>(.*?)<\/h3>/g, "### $1")
+  .replace(/<li>/g, "- ").replace(/<[^>]+>/g, "")
+  .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&amp;/g, "&")
+  .replace(/\n{3,}/g, "\n\n").trim();
+writeFileSync("dist/llms-full.txt", ROUTES.filter((r) => r.answer || r.platform).map((r) => {
+  const it = r.answer || r.platform;
+  const faq = (it.faq || []).map((f) => `### ${f.q}\n${f.a}`).join("\n\n");
+  return `${plain(it.html)}\n\nSource: ${SITE_URL}/${r.slug}` + (faq ? `\n\n## Questions\n\n${faq}` : "");
+}).join("\n\n---\n\n") + "\n");
 
 if (existsSync("static")) cpSync("static", "dist", { recursive: true });
 

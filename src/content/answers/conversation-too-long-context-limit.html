@@ -1,0 +1,38 @@
+<h1>When an AI chat gets too long: the context limit, and how to carry on</h1>
+
+<p>Short answer: the conversation has filled the model’s context window, the amount of text it can read at once. Start a new chat and carry over the decisions, not the transcript.</p>
+
+<p>Eventually a long conversation stops. ChatGPT tells you the chat has reached its maximum length and offers a new one. Claude says the conversation has hit its maximum length and asks you to start another. Other assistants just get vaguer, repeat themselves, or ignore something you settled an hour ago. It is the same limit each time: the context window is full.</p>
+
+<h2>What the context window is</h2>
+
+<p>A model does not remember a conversation. Every time you send a message, the app sends the conversation back to the model — as much of it as fits — and the model reads it from the start. The amount it can read at once is the context window, measured in tokens, each roughly three-quarters of an English word.</p>
+
+<p>When the conversation outgrows it, the app has two choices: refuse to continue, or quietly drop or compress the oldest turns. The refusal is the error message. The quiet version is <a href="/answers/why-ai-forgets-conversation">why the AI forgets what you told it earlier</a>.</p>
+
+<h2>What fills it fastest</h2>
+
+<ul>
+<li><strong>Files and pasted documents.</strong> A long PDF or a pasted codebase can take more room than a hundred ordinary messages.</li>
+<li><strong>Long answers.</strong> The model's replies count as much as yours. Asking for a full rewrite of a long file, again and again, fills the window with near-duplicates.</li>
+<li><strong>Tool output.</strong> Web search results and code output can take room as well, depending on the app.</li>
+</ul>
+
+<h2>How to carry on without losing the thread</h2>
+
+<ol>
+<li><strong>Start the new chat before the wall.</strong> Answers usually get worse before the hard stop — missed details, forgotten constraints. That is the moment to hand over, not after the error. (The page getting slow is a separate problem with <a href="/answers/why-long-ai-chats-get-slow">a separate fix</a>.)</li>
+<li><strong>Carry decisions, not the transcript.</strong> The goal, the constraints, what was decided and what is still open. Pasting the whole conversation into a new chat fills the new window with the same problem. <a href="/answers/continue-conversation-in-new-chat">A handover that works</a>.</li>
+<li><strong>Move standing material out of the chat.</strong> Reference documents and standing instructions belong in the project or custom-instruction features the apps provide, so each new chat starts with them instead of you pasting them again.</li>
+<li><strong>One conversation per topic.</strong> A chat that covers three projects runs out three times faster than it needs to.</li>
+</ol>
+
+<h2>How Tvara handles the handover</h2>
+
+<ul>
+<li><strong>Continue in a new chat.</strong> One click on the minimap toolbar opens a fresh conversation with the context already in the prompt box: your original ask, your starred messages and the last few turns. Quoted, never summarised, and nothing is sent until you press send.</li>
+<li><strong>Context Bridge.</strong> While you write a prompt, Ctrl+Shift+U (⌘⇧U on a Mac) searches your local archive for relevant passages from past chats and lets you pick which to add. It runs no model and calls no API of ours.</li>
+<li><strong>Stars.</strong> Starring the messages that matter as you go is what makes the handover precise. Stars are free.</li>
+</ul>
+
+<p>Continue in a new chat and Context Bridge are part of Pro, <a href="/pricing">$1 once, five devices, no subscription</a>. The speed engine that keeps a long chat usable until then is free. <a href="/answers/how-many-messages-in-one-chat">How long can one chat be?</a></p>

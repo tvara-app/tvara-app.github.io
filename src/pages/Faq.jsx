@@ -1,8 +1,15 @@
 import Reveal from "../components/Reveal.jsx";
 import Accordion from "../components/Accordion.jsx";
-import { PRICE, MAIL, mailTo } from "../routes.js";
+import { PRICE, MAIL, mailTo, STORE_URL } from "../routes.js";
 
 export const ITEMS = [
+  {
+    q: "What is Tvara?",
+    a: <>
+      <p>Tvara is a browser extension for long AI conversations on ChatGPT, Claude, Gemini, DeepSeek, Grok and Perplexity, in Chrome and Edge on desktop. It keeps a long chat fast, lets you jump to any message, shows when messages were sent, tracks the usage limits the sites report, and keeps an archive of your chats on your own computer.</p>
+      <p>The speed engine, navigation, timestamps, usage tracking and exports are free. Pro is {PRICE} once, on up to five devices, and adds search across every archived chat, encrypted backups, Context Bridge and continuing a chat in a new one. <a href={STORE_URL} rel="noopener">Add it to Chrome</a>.</p>
+    </>,
+  },
   {
     q: "Do my conversations go to a server?",
     a: <>

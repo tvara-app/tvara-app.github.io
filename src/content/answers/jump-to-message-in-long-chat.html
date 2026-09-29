@@ -1,0 +1,34 @@
+<h1>How to jump to any message in a long AI chat</h1>
+
+<p>Short answer: the browser’s find bar misses messages the site has unloaded, so scrolling and Ctrl+F both fail in a long chat. A minimap, an outline or a search that reads the whole conversation gets you to any message in one click.</p>
+
+<p>Somewhere in a 300-message conversation is the answer you need — the schema you agreed on, the paragraph that worked, the command that fixed it. The chat has no index, every turn looks like every other turn, and the scrollbar thumb is a few pixels tall. So you scroll, overshoot, and scroll back.</p>
+
+<h2>Why the usual tricks fail</h2>
+
+<ul>
+<li><strong>Ctrl+F misses old messages.</strong> To stay responsive, chat sites unload or lazily load older parts of a long conversation. Text that is not in the page cannot be found by the browser's find bar, so a search for something you know is there comes back empty.</li>
+<li><strong>Scrolling up can load more.</strong> On some sites reaching the top pulls in another batch of history, and the page moves under you as you read.</li>
+<li><strong>Sidebar search finds the chat, not the message.</strong> Searching your conversation list gets you into the right chat and usually leaves you at the bottom of it.</li>
+</ul>
+
+<h2>What works without any tools</h2>
+
+<ol>
+<li><strong>Home and End.</strong> Click an empty area outside the message box first; Home then goes to the top of what is loaded and End back to the latest reply.</li>
+<li><strong>Label what matters as you go.</strong> When an answer is one you will want again, reply with a short tag such as "DECISION:" so a later search has a unique word to find.</li>
+<li><strong>Ask for a table of contents.</strong> A numbered list of the topics covered so far gives you phrases to search for. Check it against the chat — a model summarising a long conversation can misremember — and do it rarely, because it costs context.</li>
+<li><strong>Split long work.</strong> One conversation per topic keeps each one short enough to scroll. <a href="/answers/continue-conversation-in-new-chat">How to carry the context over</a>.</li>
+</ol>
+
+<h2>How Tvara does it</h2>
+
+<ul>
+<li><strong>Minimap.</strong> A thin rail on the right edge showing the shape of the whole conversation — your prompts, the answers, the code blocks. Hover a bar to preview it, click to land on it, hundreds of turns away, even where the site has unloaded the message.</li>
+<li><strong>Outline.</strong> A live table of contents of every prompt you sent and every heading in the answers. A heading takes you to that heading, not to the top of the answer holding it.</li>
+<li><strong>Stars.</strong> Bookmarks inside a conversation. Stars survive reloads and get their own tab in the outline.</li>
+<li><strong>In-chat search.</strong> Ctrl+Shift+F (⌘⇧F on a Mac) searches the whole conversation, including messages the page has unloaded. Enter and Shift+Enter step through the matches.</li>
+<li><strong>Resume.</strong> Reopen a long chat and a chip offers to take you back to the message you were reading.</li>
+</ul>
+
+<p>All of it is free on every supported site. <a href="/features">See every feature</a> · <a href="/guide">Keyboard reference</a></p>

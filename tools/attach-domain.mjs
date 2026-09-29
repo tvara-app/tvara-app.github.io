@@ -4,8 +4,9 @@
  *
  * It refuses to start unless the zone is on this account, because everything
  * after that point assumes it. Then it attaches the domain to the Pages
- * project, points the apex at it, rebuilds the site under the new address
- * (canonicals, sitemap, OG tags and llms.txt all carry it) and deploys.
+ * project, points the apex at it and waits until it answers. It deploys only
+ * when ORIGIN in src/routes.js already names the domain: canonicals must never
+ * point at a host that does not answer yet.
  *
  * The site stays on Cloudflare Pages: static assets from the edge, no Worker
  * invocation, nothing metered. Response headers come from dist/_headers.
@@ -29,7 +30,7 @@ const api = async (path, init = {}) => (await fetch("https://api.cloudflare.com/
 
 const accounts = await api("/accounts");
 const account = accounts.result?.[0];
-if (!account) throw new Error("No Cloudflare account on this token.");
+if (!account) throw new Error("No Cloudflare account on this token. It may have expired: npx wrangler login.");
 const zone = (await api(`/zones?name=${DOMAIN}`)).result?.[0];
 if (!zone) {
   console.error(`${DOMAIN} is not a zone in ${account.name}.`);
@@ -61,8 +62,14 @@ if (!apex) {
   console.log(`apex already ${apex.type} -> ${apex.content}`);
 }
 
-run(`SITE_URL=https://${DOMAIN} npm run build`);
-run(`npx --yes wrangler@4 pages deploy dist --project-name ${PROJECT} --branch main --commit-dirty=true`);
+// Certificate issuance takes minutes.
+let res = null;
+for (let i = 0; i < 40 && !res?.ok; i++) {
+  res = await fetch(`https://${DOMAIN}/robots.txt`).catch(() => null);
+  if (!res?.ok) await new Promise((r) => setTimeout(r, 15000));
+}
+if (!res?.ok) throw new Error(`https://${DOMAIN} still not answering after 10 minutes; rerun later.`);
 
-const res = await fetch(`https://${DOMAIN}/features`).catch(() => null);
-console.log(`https://${DOMAIN}/features -> ${res ? res.status : "not answering yet (certificate can take a few minutes)"}`);
+const origin = readFileSync("src/routes.js", "utf8").match(/ORIGIN = "([^"]+)"/)[1];
+if (origin === `https://${DOMAIN}`) run("npm run deploy");
+else console.log(`${DOMAIN} answers. Set ORIGIN in src/routes.js to https://${DOMAIN}, then npm run deploy.`);

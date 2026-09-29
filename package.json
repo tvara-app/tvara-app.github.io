@@ -7,7 +7,7 @@
   "scripts": {
     "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node prerender.mjs",
     "preview": "npm run build && npx --yes serve dist",
-    "deploy": "npm run build && npx --yes wrangler@4 pages deploy dist --project-name tvara --branch main --commit-dirty=true && node tools/indexnow.mjs",
+    "deploy": "npm run build && node tools/preflight.mjs && npx --yes wrangler@4 pages deploy dist --project-name tvara --branch main --commit-dirty=true && node tools/indexnow.mjs",
     "indexnow": "node tools/indexnow.mjs",
     "domain": "node tools/attach-domain.mjs"
   },

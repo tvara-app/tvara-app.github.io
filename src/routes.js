@@ -8,11 +8,16 @@ import { PLATFORMS } from "./platforms.js";
    from the current name, so a rename never breaks it. */
 export const STORE_URL = "https://chromewebstore.google.com/detail/ajpnackhheeafgecocapboccaplcnaje";
 
+/* The address every page calls itself: canonicals, sitemap, OG tags, llms.txt.
+   Fixed here, never from the environment — a deploy that forgets a variable must
+   not move every canonical. Flip to https://tvara.app only once it answers. */
+export const ORIGIN = "https://tvara.pages.dev";
+
 export const ROUTES = [
   { path: "/", slug: "", nav: "Overview", title: "Tvara · Long Chat Extension for ChatGPT, Claude & Gemini",
     crumb: "Overview",
-    desc: "A Chrome extension for long AI chats on ChatGPT, Claude, Gemini, DeepSeek, Grok and Perplexity: stops the lag, jumps to any message, and saves your chats locally." },
-  { path: "/features", slug: "features", nav: "Features", title: "Every Tvara feature, and its honest limits",
+    desc: "Chrome extension for long ChatGPT, Claude, Gemini, DeepSeek, Grok and Perplexity chats: stops the lag, jumps to any message, carries context, saves chats locally." },
+  { path: "/features", slug: "features", nav: "Features", title: "Tvara features: speed, minimap, chat search, timestamps, backup",
     crumb: "Features",
     desc: "Every feature in Tvara, explained: speed engine, minimap, outline, stars, search, timestamps, Chat Card, resume, backups, Total Recall, Context Bridge, allowance tracking and deletion quarantine." },
   { path: "/pricing", slug: "pricing", nav: "Pricing", title: "Tvara pricing · $1 once, five devices, no subscription",
@@ -33,7 +38,7 @@ export const ROUTES = [
   { path: "/refunds", slug: "refunds", nav: null, title: "Tvara refund policy · 14 days, no questions",
     crumb: "Refunds",
     desc: "A full refund within 14 days of buying Tvara Pro, by email, with no form and no questions. Your archive stays yours either way." },
-  { path: "/answers", slug: "answers", nav: "Answers", title: "Answers · long AI chats, explained",
+  { path: "/answers", slug: "answers", nav: "Answers", title: "Long AI chats, explained: lag, search, limits, context · Tvara",
     crumb: "Answers",
     desc: "What goes wrong once an AI conversation gets long — speed, search, exports, usage limits and deletion — explained plainly, with fixes that work with or without Tvara." },
   { path: "/thanks", slug: "thanks", nav: null, title: "Payment received · Tvara",

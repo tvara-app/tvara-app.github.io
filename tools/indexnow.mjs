@@ -4,9 +4,9 @@
    route is the sitemap in Search Console. */
 import { readFileSync } from "node:fs";
 
-const SITE_URL = (process.env.SITE_URL || "https://tvara.pages.dev").replace(/\/$/, "");
 const KEY = "76859f89906bc1642c8dd974b261ef5b";
 const urls = [...readFileSync("dist/sitemap.xml", "utf8").matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+const SITE_URL = new URL(urls[0]).origin;
 const res = await fetch("https://api.indexnow.org/indexnow", {
   method: "POST",
   headers: { "content-type": "application/json; charset=utf-8" },
