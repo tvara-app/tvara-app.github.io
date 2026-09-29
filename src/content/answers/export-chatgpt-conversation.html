@@ -1,0 +1,32 @@
+<h1>How to export one ChatGPT conversation to Markdown, PDF or JSON</h1>
+
+<p>Short answer: ChatGPT's own export covers your whole account and arrives by email as a zip. For one conversation, copy it, print it to PDF, or save it as Markdown or JSON with an extension.</p>
+
+<p>You want one conversation as a file: to keep in your notes, to send to someone, or to feed to another tool. ChatGPT gives you a button to copy one reply and a way to export everything, and nothing in between.</p>
+
+<h2>The built-in options</h2>
+
+<ul>
+<li><strong>Export data.</strong> Settings → Data controls → Export data. A link arrives by email to a zip with your whole history, as a <code>conversations.json</code> file and a readable HTML page. It is complete, but it is every chat at once, and finding one conversation in it is a job of its own.</li>
+<li><strong>Copy.</strong> The copy button under each reply copies that reply. Fine for one answer; for a whole conversation it is dozens of clicks, and your own prompts are separate.</li>
+<li><strong>Share link.</strong> Creates a public page of the conversation. Good for showing someone, but it is a link on OpenAI's site rather than a file you keep, and anyone with the link can read it.</li>
+<li><strong>Print to PDF.</strong> Ctrl+P or Cmd+P, then Save as PDF. It works for short chats. Long ones print poorly: the page is built for scrolling, and messages the site has not loaded are not printed.</li>
+</ul>
+
+<h2>Which format to pick</h2>
+
+<ul>
+<li><strong>Markdown</strong> to read or keep it. It opens in Obsidian, Notion or any text editor, keeps headings, lists and code blocks, and converts cleanly to PDF or a document.</li>
+<li><strong>JSON</strong> when a program will read it: one record per message, with role, text and time.</li>
+<li><strong>PDF</strong> to send or print a fixed copy. Make it from the Markdown for a clean result rather than printing the chat page.</li>
+</ul>
+
+<h2>What copy-paste loses</h2>
+
+<p>Maths copies as broken symbols or not at all, code blocks can lose their language, and images do not come along. Check the pasted result before you rely on it. <a href="/answers/save-notes-from-ai-chats">More on keeping answers intact</a>.</p>
+
+<h2>How Tvara does it</h2>
+
+<p>One click on the minimap toolbar saves the open conversation to your Downloads folder. Markdown keeps headings, lists, code fences and timestamps, and drops straight into Obsidian or Notion. JSON gives role, text and send time for each message, for your own scripts. When the page has not loaded the whole chat, Tvara fills in the rest from its local archive where it has it, and tells you which you got.</p>
+
+<p>On ChatGPT this is free, send times included. The same export is free on Perplexity, DeepSeek and Grok, and part of Pro on Claude and Gemini. Nothing is uploaded. <a href="/answers/export-ai-chat-history">Exporting your whole history</a> · <a href="/chatgpt-extension">Tvara on ChatGPT</a></p>

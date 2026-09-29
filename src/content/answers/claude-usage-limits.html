@@ -1,0 +1,38 @@
+<h1>Claude usage limits: the five-hour session and the weekly cap</h1>
+
+<p>Short answer: Claude meters use in a five-hour session and a weekly limit, and the usage page in Claude's settings shows how much of each is gone and when it resets. Long conversations and large files use it fastest, because Claude reads the whole chat again with every message.</p>
+
+<p>The message arrives mid-task: you have reached your limit, come back later. Two limits sit behind it, and knowing which one stopped you tells you whether to wait a few hours or plan around the rest of the week.</p>
+
+<h2>The two limits</h2>
+
+<ul>
+<li><strong>The session limit.</strong> A five-hour window. When it runs out, Claude stops answering until the window resets, and tells you when that will be.</li>
+<li><strong>The weekly limit.</strong> A cap on total use across the week, on top of the sessions. You can have session allowance left and still be stopped by the week.</li>
+</ul>
+
+<p>Neither is a fixed number of messages. Usage is weighted: a short question in a new chat costs little, and a long answer late in a long chat with files attached costs a lot. That is why the same plan can feel generous one day and tight the next.</p>
+
+<h2>Where to see what is left</h2>
+
+<p>Claude's settings have a usage page that shows both limits: how much of the current session and of the week you have used, and when each resets. It is accurate. It is also a page you have to go and open, which is why most people find out from the error message instead.</p>
+
+<h2>Why long chats use it up faster</h2>
+
+<p>Claude does not remember a conversation between messages. Every time you send one, the whole conversation goes back to the model and is read again. Message two hundred of a long chat carries the other hundred and ninety-nine with it. <a href="/answers/why-ai-forgets-conversation">More on how the context window works</a>.</p>
+
+<h2>How to make it last</h2>
+
+<ol>
+<li><strong>Start a new chat when the topic changes.</strong> A fresh chat is cheap per message; a long one is expensive. Carry the decisions across, not the transcript. <a href="/answers/continue-conversation-in-new-chat">A handover that works</a>.</li>
+<li><strong>Keep reference files in a project.</strong> Add a document to a project once instead of pasting it into chat after chat.</li>
+<li><strong>Ask for the change, not the whole thing.</strong> Asking for only the changed lines of a long file costs far less than a full rewrite every time.</li>
+<li><strong>Save heavy features for heavy work.</strong> Research and long tool runs use more of the allowance than a plain question.</li>
+<li><strong>Front-load the expensive work.</strong> Large files and long analysis early in a session; quick questions near the end of it.</li>
+</ol>
+
+<h2>How Tvara shows it</h2>
+
+<p>Tvara puts Claude's own figures where you are working: the five-hour session and the weekly limit, each with its reset time. The one that will stop you soonest comes first, and Tvara warns you at 20% and again at 10% left, so the error message is no longer the first warning.</p>
+
+<p>It only reads what Claude already reports. Nothing is estimated and no request is changed. Allowance tracking is free. <a href="/claude-extension">Tvara on Claude</a> · <a href="/answers/check-ai-usage-limits">Limits on ChatGPT and Gemini</a></p>

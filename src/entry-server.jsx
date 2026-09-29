@@ -80,6 +80,7 @@ export function schemaFor(route, siteUrl) {
       featureList: ["Speed engine", "Minimap", "Outline", "In-chat search", "Message timestamps",
                     "Resume", "Markdown and JSON backup", "Total Recall", "Context Bridge", "Continue in a new chat",
                     "Starred messages", "Chat Card", "Allowance tracking", "Deletion quarantine"],
+      keywords: "long chat extension, AI chat manager, ChatGPT extension, Claude extension, Gemini extension, chat minimap, context management, chat export, chat backup, usage limit tracker",
     });
   } else {
     /* An article sits under /answers, and saying so is what makes the crumb
@@ -110,6 +111,27 @@ export function schemaFor(route, siteUrl) {
     });
   }
 
+  if (route.answer?.terms) {
+    blocks.push({
+      "@context": "https://schema.org", "@type": "DefinedTermSet",
+      "@id": url + "#terms", name: route.title.replace(/ · Tvara$/, ""), url,
+      hasDefinedTerm: route.answer.terms.map((t) => ({
+        "@type": "DefinedTerm", name: t.term, description: t.def,
+        url: url + "#" + t.id, inDefinedTermSet: { "@id": url + "#terms" },
+      })),
+    });
+  }
+
+  /* The hub names every article it links to. */
+  if (route.path === "/answers") {
+    blocks.push({
+      "@context": "https://schema.org", "@type": "ItemList",
+      itemListElement: ANSWERS.map((a, i) => ({
+        "@type": "ListItem", position: i + 1, name: a.crumb, url: siteUrl + "/" + a.slug,
+      })),
+    });
+  }
+
   /* The guide IS a how-to, and its steps are the ones the page renders — same
      array, so the markup and the schema cannot describe different products. */
   if (route.path === "/guide") {
@@ -128,10 +150,12 @@ export function schemaFor(route, siteUrl) {
     });
   }
 
-  if (route.platform) {
+  /* Articles and platform pages carry their own questions, rendered on the page. */
+  const faq = (route.answer || route.platform)?.faq;
+  if (faq) {
     blocks.push({
       "@context": "https://schema.org", "@type": "FAQPage",
-      mainEntity: route.platform.faq.map((it) => ({
+      mainEntity: faq.map((it) => ({
         "@type": "Question", name: it.q,
         acceptedAnswer: { "@type": "Answer", text: it.a },
       })),

@@ -2,10 +2,11 @@ import Reveal from "../components/Reveal.jsx";
 import { PRICE, MAIL, mailTo } from "../routes.js";
 
 const FREE = [
-  "Speed engine, minimap, outline, and in-chat search",
+  "Speed engine and minimap on every supported site",
+  "Outline, in-chat search, timestamps and one-click export on ChatGPT, Perplexity, DeepSeek and Grok",
   "Local archive of chats opened on supported AI sites",
   "Provider usage tracking when a reliable figure is available",
-  "Export to Markdown and JSON",
+  "Archive export on every supported site",
   "No account, no sign-up, nothing to cancel",
   "No card, not even to start",
 ];
@@ -14,6 +15,7 @@ const PRO = [
   "Total Recall — local search across archived supported chats",
   "Context Bridge — your own past answers, into the prompt you are writing",
   "Continue in a new chat, carrying the context across",
+  "Outline, in-chat search, timestamps and one-click export on Claude and Gemini",
   "Encrypted local backups with a passphrase you choose",
   "5 devices, reassigned from the popup any time",
   "All future Pro updates included",
@@ -28,8 +30,9 @@ export default function Pricing() {
           <span className="eyebrow">Plans</span>
           <h1>{PRICE}, once. There is no subscription.</h1>
           <p>
-            The speed engine, minimap, search, timestamps, resume, and standard exports are free and stay
-            free. Pro adds local archive search, Context Bridge, encrypted backup, and restore.
+            The speed engine, minimap, resume, and archive export are free on every supported site, and the
+            outline, search, and timestamps are free on four of the six. Pro adds local archive search, Context
+            Bridge, encrypted backup, restore, and those tools on Claude and Gemini.
           </p>
         </Reveal>
 

@@ -6,8 +6,8 @@ export const ITEMS = [
   {
     q: "What is Tvara?",
     a: <>
-      <p>Tvara is a browser extension for long AI conversations on ChatGPT, Claude, Gemini, DeepSeek, Grok and Perplexity, in Chrome and Edge on desktop. It keeps a long chat fast, lets you jump to any message, shows when messages were sent, tracks the usage limits the sites report, and keeps an archive of your chats on your own computer.</p>
-      <p>The speed engine, navigation, timestamps, usage tracking and exports are free. Pro is {PRICE} once, on up to five devices, and adds search across every archived chat, encrypted backups, Context Bridge and continuing a chat in a new one. <a href={STORE_URL} rel="noopener">Add it to Chrome</a>.</p>
+      <p>Tvara is a long chat extension: it manages long AI conversations on ChatGPT, Claude, Gemini, DeepSeek, Grok and Perplexity, in Chrome and Edge on desktop. It keeps a long chat fast, lets you jump to any message, shows when messages were sent, tracks the usage limits the sites report, and keeps an archive of your chats on your own computer.</p>
+      <p>The speed engine, minimap, usage tracking and archive export are free on every supported site. The outline, in-chat search, timestamps and one-click export are free on ChatGPT, Perplexity, DeepSeek and Grok, and part of Pro on Claude and Gemini. Pro is {PRICE} once, on up to five devices, and adds search across every archived chat, encrypted backups, Context Bridge and continuing a chat in a new one. <a href={STORE_URL} rel="noopener">Add it to Chrome</a>.</p>
     </>,
   },
   {

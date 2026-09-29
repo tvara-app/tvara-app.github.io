@@ -32,7 +32,7 @@ const FEATURES = [
       <>A live table of contents built from every prompt you sent plus every heading in the answers. Click an entry to jump — a heading takes you to that heading, not to the top of the answer holding it. Very long chats list the first 400 entries and say so; it never silently truncates.</>,
       <>Stars are bookmarks inside a conversation: hover any message, click the star, and it gets a gold edge. They are saved per conversation, survive reloads, and the most recent 60 per conversation sync to your other signed-in browsers while the full set stays on this one.</>,
     ],
-    spec: [["Open", "The list icon on the minimap toolbar"], ["Tabs", "Outline (everything) and Starred (only yours)"], ["Plan", "Free"]],
+    spec: [["Open", "The list icon on the minimap toolbar"], ["Tabs", "Outline (everything) and Starred (only yours)"], ["Plan", "Free · Pro or trial on Claude and Gemini"]],
   },
   {
     h: "In-chat search",
@@ -40,7 +40,7 @@ const FEATURES = [
       <>Local full-text search across the entire conversation <strong>including sleeping messages</strong> — it searches a text cache rather than the rendered page, so the speed engine costs you nothing here.</>,
       <>The match counter updates as you type. Enter jumps to the next match, Shift+Enter to the previous, Escape closes. Each jump scrolls to the match and pulses it.</>,
     ],
-    spec: [["Keys", <><kbd>⌘⇧F</kbd> <kbd>Ctrl+Shift+F</kbd></>], ["Plan", "Free"]],
+    spec: [["Keys", <><kbd>⌘⇧F</kbd> <kbd>Ctrl+Shift+F</kbd></>], ["Plan", "Free · Pro or trial on Claude and Gemini"]],
   },
   {
     h: "Message timestamps",
@@ -48,7 +48,7 @@ const FEATURES = [
       <>AI chat sites never show when anything was said. Hover a message and a small time tag appears.</>,
       <><strong>The honesty rule:</strong> on ChatGPT you get the real send time of your whole history, read locally from the app's own state by a read-only script that makes no network request. On other sites browsers simply do not have historical send times, so messages are stamped from when the extension first saw them and labelled <em>first seen · this device</em>. Messages that existed before you installed say <em>time unknown</em>.</>,
     ],
-    spec: [["Plan", "Free"], ["Off switch", "Popup · Timestamps"]],
+    spec: [["Plan", "Free · Pro or trial on Claude and Gemini"], ["Off switch", "Popup · Timestamps"]],
   },
   {
     h: "Chat Card",
@@ -71,7 +71,7 @@ const FEATURES = [
       <>The loaded conversation as a clean file on your disk. <strong>Markdown</strong> keeps headings, lists, code fences and timestamps and drops straight into Obsidian or Notion. <strong>JSON</strong> is structured — role, text and timestamp per message — for your own scripts.</>,
       <>Scheduled encrypted backups are separate: <code>.lctbackup</code> files written to your Downloads folder, sealed with a passphrase you choose and that we cannot recover. The file assumes it will be stolen — a million PBKDF2 rounds wrap a random file key and the body is AES-256-GCM, with both layers authenticating the header, so a downgraded file fails to open rather than opening weaker.</>,
     ],
-    spec: [["Where", "Minimap toolbar, and the Recall page for encrypted archives"], ["Plan", "Exports are free. Encrypted backup needs Trial or Pro."]],
+    spec: [["Where", "Minimap toolbar, and the Recall page for encrypted archives"], ["Plan", "Archive export is free. One-click export is Pro or trial on Claude and Gemini, as is encrypted backup everywhere."]],
   },
   {
     h: "Total Recall", pro: true,

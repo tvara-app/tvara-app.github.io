@@ -113,15 +113,16 @@ writeFileSync("dist/llms.txt", [
   "- One server exists: a licence issuer. It never receives conversation text.",
   "- Public launch support is current Chrome and Edge desktop browsers.",
   "- Exporting an archive never requires a licence.",
+  "- The speed engine, minimap and allowance tracking are free everywhere. Outline, in-chat search, timestamps and one-click export are free on ChatGPT, Perplexity, DeepSeek and Grok, and Pro (seven-day free trial) on Claude and Gemini.",
   "",
   "## What it fixes",
   "- A long ChatGPT, Claude or Gemini chat lags or freezes the tab: the speed engine puts off-screen messages to sleep. Free.",
-  "- Finding one message in a long chat: minimap, outline, starred messages and in-chat search that reaches unloaded messages. Free.",
-  "- Seeing when a message was sent: hover timestamps, with real send times on ChatGPT. Free.",
+  "- Finding one message in a long chat: minimap, outline, starred messages and in-chat search that reaches unloaded messages.",
+  "- Seeing when a message was sent: hover timestamps, with real send times on ChatGPT.",
   "- A chat hit its maximum length or context limit: Continue in a new chat and Context Bridge carry the context over. Pro.",
   "- Searching every past chat across platforms: Total Recall, a local archive. Pro.",
   "- Running out of usage allowance without warning: provider-reported limits, with alerts at 20% and 10%. Free.",
-  "- Exporting chats: Markdown and JSON export free; encrypted scheduled backups with Pro.",
+  "- Exporting chats: archive export free; one-click Markdown and JSON of the open chat; encrypted scheduled backups with Pro.",
   "",
   "## Links",
   `- [Install from the Chrome Web Store](${STORE_URL})`,
@@ -137,8 +138,9 @@ const plain = (html) => html
   .replace(/\n{3,}/g, "\n\n").trim();
 writeFileSync("dist/llms-full.txt", ROUTES.filter((r) => r.answer || r.platform).map((r) => {
   const it = r.answer || r.platform;
+  const terms = (it.terms || []).map((t) => `### ${t.term}\n${t.def}`).join("\n\n");
   const faq = (it.faq || []).map((f) => `### ${f.q}\n${f.a}`).join("\n\n");
-  return `${plain(it.html)}\n\nSource: ${SITE_URL}/${r.slug}` + (faq ? `\n\n## Questions\n\n${faq}` : "");
+  return `${plain(it.html)}${terms ? "\n\n" + terms : ""}\n\nSource: ${SITE_URL}/${r.slug}` + (faq ? `\n\n## Questions\n\n${faq}` : "");
 }).join("\n\n---\n\n") + "\n");
 
 if (existsSync("static")) cpSync("static", "dist", { recursive: true });

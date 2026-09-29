@@ -16,7 +16,7 @@ export const PLATFORMS = [
     slug: "chatgpt-extension", name: "ChatGPT", html: chatgpt, updated: "2026-09-17",
     title: "Long Chat Extension for ChatGPT: Fix Lag, Search, Backup · Tvara",
     desc: "A Chrome extension that stops long ChatGPT chats lagging, adds a minimap, outline and search, shows real send times, and saves your ChatGPT history locally.",
-    related: ["answers/why-long-ai-chats-get-slow", "answers/search-old-ai-conversations", "answers/export-ai-chat-history"],
+    related: ["answers/why-long-ai-chats-get-slow", "answers/export-chatgpt-conversation", "answers/see-when-ai-message-was-sent", "answers/search-old-ai-conversations"],
     faq: [
       { q: "Does Tvara delete ChatGPT messages to make a chat faster?",
         a: "No. Messages outside the screen are put to sleep, not removed, and they come back as you scroll to them. Nothing in your ChatGPT account is changed." },
@@ -30,7 +30,7 @@ export const PLATFORMS = [
     slug: "claude-extension", name: "Claude", html: claude, updated: "2026-09-17",
     title: "Long Chat Extension for Claude: Speed, Usage Limits, Backup · Tvara",
     desc: "A Chrome extension for long Claude chats: less lag, a minimap to jump between messages, your five-hour and weekly usage limits, and your Claude history saved locally.",
-    related: ["answers/check-ai-usage-limits", "answers/continue-conversation-in-new-chat", "answers/why-long-ai-chats-get-slow"],
+    related: ["answers/claude-usage-limits", "answers/conversation-too-long-context-limit", "answers/continue-conversation-in-new-chat", "answers/why-long-ai-chats-get-slow"],
     faq: [
       { q: "Can Tvara show how much of my Claude limit is left?",
         a: "Yes. It shows your five-hour session limit and your weekly limit from Claude's own figures, with the time each resets, and leads with the one that will stop you soonest." },

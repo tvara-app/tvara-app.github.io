@@ -645,6 +645,10 @@ section[data-section="Pricing"] .section-head p { margin-top: 11px; font-size: 1
 .prose a { color: var(--ember); text-decoration-color: rgb(255 177 133 / .35); text-underline-offset: 3px; }
 .prose a:hover { text-decoration-color: var(--ember); }
 .prose section { padding-top: 0; }
+.terms { display: grid; gap: 26px; margin-top: 8px; }
+.terms > div { scroll-margin-top: 96px; }
+.terms dt { color: var(--ink); font-size: 17.5px; font-weight: 500; }
+.terms dd { margin: 6px 0 0; max-width: 68ch; color: var(--ink-dim); line-height: 1.62; }
 
 /* ---------- footer ---------- */
 
